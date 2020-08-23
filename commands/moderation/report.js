@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 
 module.exports = {
-        name: "report1",
+        name: "report",
         category: "Moderation",
         description: "Report a user",
         usage: "$report",
