@@ -3,7 +3,7 @@ const urban = require('urban');
 const { stripIndents }  = require('common-tags')
 
 module.exports = {
-        name: "1dictionary",
+        name: "dictionary",
         aliases: ["urban", "ud", "dic"],
         category: "Fun",
         description: "Find a word in the Urban Dictionary",
