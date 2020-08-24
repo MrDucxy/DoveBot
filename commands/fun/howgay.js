@@ -9,7 +9,6 @@ module.exports = {
     run: async (bot, message, args) => {
 
         let target = message.guild.member(message.mentions.users.first());
-        if(!target) return message.reply('You did not mention anybody!');
         function between(min, max) {  
             return Math.floor(
               Math.random() * (max - min) + min
