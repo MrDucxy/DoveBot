@@ -19,6 +19,7 @@
     "dotenv": "^8.2.0",
     "figlet": "^1.5.0",
     "opusscript": "0.0.7",
+    "popyt": "^4.1.1",
     "random-puppy": "^1.1.0",
     "solenolyrics": "^5.0.0",
     "superagent": "^6.0.0",
