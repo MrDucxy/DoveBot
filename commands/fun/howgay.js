@@ -5,7 +5,7 @@ module.exports = {
         aliases: ["gaymeter"],
         category: "Fun",
         description: "Shows how gay someone is.",
-        usage: "$howgay",
+        usage: "$howgay <mention>",
     run: async (bot, message, args) => {
 
         let target = message.guild.member(message.mentions.users.first());

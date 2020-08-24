@@ -4,7 +4,7 @@ module.exports = {
         name: "report",
         category: "Moderation",
         description: "Report a user",
-        usage: "$report",
+        usage: "$report <mention>",
     run: async (bot, message, args) => {
 
         let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
@@ -24,7 +24,7 @@ module.exports = {
         let reports = message.guild.channels.cache.find(channel => channel.name === 'reports');
     
         let embed = new discord.MessageEmbed()
-            .setColor('BLACK')
+            .setColor('#007dff')
             .setThumbnail(target.avatarURL)
             .addField('Reported Member', `<@${target.id}> (${target.user.id})`)
             .addField('Reported By', `<@${message.author.id}> (${message.author.id})`)

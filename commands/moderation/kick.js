@@ -4,7 +4,7 @@ module.exports = {
         name: "kick",
         category: "Moderation",
         description: "Kicks a user",
-        usage: "$kick",
+        usage: "$kick <mention>",
     run: async (bot, message, args) => {
 
         let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
@@ -27,7 +27,7 @@ module.exports = {
         let logs = message.guild.channels.cache.find(channel => channel.name === 'logs');
     
         let embed = new discord.MessageEmbed()
-            .setColor('BLACK')
+            .setColor('#007dff')
             .setThumbnail(target.avatarURL)
             .addField('Kicked Member', `<@${target.id}> (${target.user.id})`)
             .addField('Kicked By', `<@${message.author.id}> (${message.author.id})`)

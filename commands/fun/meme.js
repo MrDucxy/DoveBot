@@ -14,7 +14,7 @@ module.exports = {
         const img = await randomPuppy(random);
     
         const embed = new discord.MessageEmbed()
-        .setColor('BLACK')
+        .setColor('#007dff')
         .setImage(img)
         .setTitle(`Subreddit: /r/${random}`)
         .setURL(`https://reddit.com/${random}`)

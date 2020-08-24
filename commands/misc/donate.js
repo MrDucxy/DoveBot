@@ -9,7 +9,7 @@ module.exports = {
     run: async (bot, message, args) => {
 
         let embed = new discord.MessageEmbed()
-        .setColor('BLACK')
+        .setColor('#007dff')
         .setTitle('Donate to Ducxy')
         .addField('PayPal', 'https://www.paypal.com/paypalme/doveroblox')
         .addField('CashApp', 'https://www.cash.app/$D3Signer')

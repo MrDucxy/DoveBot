@@ -4,7 +4,7 @@ module.exports = {
         name: "ban",
         category: "Moderation",
         description: "Bans a user",
-        usage: "$ban",
+        usage: "$ban <mention>",
     run: async (bot, message, args) => {
 
         let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
@@ -28,7 +28,7 @@ module.exports = {
     
     
         let embed = new discord.MessageEmbed()
-            .setColor('BLACK')
+            .setColor('#007dff')
             .setThumbnail(target.avatarURL)
             .addField('Banned Member', `<@${target.id}> (${target.user.id})`)
             .addField('Banned By', `<@${message.author.username}> (${message.author.id})`)

@@ -17,7 +17,7 @@ module.exports = {
         try {
                 if(song.length > 1500){
                     let embed = new discord.MessageEmbed()
-                    .setColor('BLACK')
+                    .setColor('#007dff')
                     .setDescription(song.substring(0, 1500) + '-\r**...**')
                     .setThumbnail(icon)
                     .setTitle(title + ' - ' + author)
@@ -25,7 +25,7 @@ module.exports = {
                     message.channel.send(embed)
                 } else{
                     let embed = new discord.MessageEmbed()
-                    .setColor('BLACK')
+                    .setColor('#007dff')
                     .setThumbnail(icon)
                     .setTitle(title + ' - ' + author)
                     .setDescription(song)

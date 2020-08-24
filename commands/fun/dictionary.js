@@ -19,7 +19,7 @@ module.exports = {
                     let { word, definition, example, thumbs_up, thumbs_down, permalink} = res;
 
                         let embed = new discord.MessageEmbed()
-                            .setColor('BLACK')
+                            .setColor('#007dff')
                             .setTitle('"'+word + '" - Urban Dictionary')
                             .setThumbnail(icon)
                             .setDescription(stripIndents`**Defintion:** ${definition || "No definition."}

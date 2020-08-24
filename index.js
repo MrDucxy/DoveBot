@@ -68,7 +68,7 @@ bot.on('message', (message) =>{
 				let target = message.member;
 				let logs = message.guild.channels.cache.find(channel => channel.name === botconfig.logsChannel);
 				let embed = new Discord.MessageEmbed()
-				.setColor('BLACK')
+				.setColor('#007dff')
 				.setThumbnail(target.avatarURL)
 				.addField('Banned Member', `<@${target.id}> (${target.id})`)
 				.addField('Banned Time', message.createdAt)

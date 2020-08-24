@@ -9,7 +9,7 @@ module.exports = {
     run: async (bot, message, args) => {
 
         let embed = new discord.MessageEmbed()
-        .setColor('BLACK')
+        .setColor('#007dff')
         .setTitle(message.guild.name)
         .setThumbnail(message.guild.iconURL())
         .addField('Server Info',

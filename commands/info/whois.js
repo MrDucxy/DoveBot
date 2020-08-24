@@ -11,7 +11,7 @@ module.exports = {
         let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         if(!target) return message.channel.send('You must mention someone!')
         let embed = new discord.MessageEmbed()
-        .setColor('BLACK')
+        .setColor('#007dff')
         .setTitle(target.user.username)
         .setThumbnail(target.user.avatarURL())
         .addField('User Info',

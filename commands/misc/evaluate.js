@@ -6,7 +6,7 @@ module.exports = {
         aliases: ["execute"],
         category: "Misc",
         description: "Evaluates JavaScript",
-        usage: "$evaluate",
+        usage: "$evaluate <code>",
     run: async (bot, message, args) => {
 
         if(message.author.id !== '297195707159281665'){
@@ -26,7 +26,7 @@ module.exports = {
             const evaluated = eval(toEval)
     
             let embed = new discord.MessageEmbed()
-                .setColor("BLACK")
+                .setColor("#007dff")
                 .setTitle("Evaluation")
                 .addField("Evaluation Request:", `\`\`\`js\n${beautify(args.join(" "), { format: "js"})}\n\`\`\``)
                 .addField("Result:", evaluated)

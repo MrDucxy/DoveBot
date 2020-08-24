@@ -17,7 +17,7 @@ module.exports = {
                 let embed = new discord.MessageEmbed()
                 .setTitle('Have a nice gif!')
                 .setImage(response.body.message)
-                .setColor('BLACK')
+                .setColor('#007dff')
                 .setFooter('NSFW images provided by: https://nekobot.xyz/')
                 message.channel.send(embed);
             });

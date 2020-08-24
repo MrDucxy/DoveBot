@@ -5,7 +5,7 @@ module.exports = {
         aliases: ['delete'],
         category: "Moderation",
         description: "Deletes bulk messages",
-        usage: "$purge",
+        usage: "$purge <number 1-100>",
     run: async (bot, message, args) => {
         
         if(!message.member.hasPermission('MANAGE_MESSAGES')){

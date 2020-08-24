@@ -23,7 +23,7 @@ module.exports = {
 
 function getAll(bot, message) {
     const embed = new MessageEmbed()
-        .setColor("BLACK")
+        .setColor("#007dff")
         
     // Map all the commands
     // with the specific category
@@ -63,5 +63,5 @@ function getCMD(bot, message, input) {
         info += `\n**Usage**: ${cmd.usage}`;
     }
 
-    return message.channel.send(embed.setColor("BLACK").setDescription(info));
+    return message.channel.send(embed.setColor("#007dff").setDescription(info));
 }
