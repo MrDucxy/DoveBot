@@ -12,7 +12,9 @@ module.exports = {
 
         if(!args[0]) return message.channel.send('Please enter a song name!')
 
-        const video = await youtube.getVideo(args.join(' '), 1)
+        try {
+            const video = await youtube.getVideo(args.join(' '), 1)
+            if(!video) return message.channel.send('Could not find a YouTube video with that name.')
 
           let embed = new discord.MessageEmbed()
           .setColor('#007dff')
@@ -28,6 +30,10 @@ module.exports = {
            .setFooter(`👍: ${video.likes} | 👎: ${video.dislikes} | 👁️: ${video.views}`)
 
           message.channel.send(embed)
+
+        } catch (error) {
+            message.channel.send('An error has occurred.')
+        }
 
     }
 
