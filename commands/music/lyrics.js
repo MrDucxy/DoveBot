@@ -8,12 +8,12 @@ module.exports = {
         description: "Get the lyrics to your favorite song",
         usage: "$lyrics <song name>",
     run: async (bot, message, args) => {
+        if(!args[0]) return message.channel.send('Please enter a song name!')
         let song = await lyrics.requestLyricsFor(`${args.join(' ')}`); 
         if(!song) return message.channel.send('Could not find results for that song!');
         let author = await lyrics.requestAuthorFor(`${args.join(' ')}`); 
         let title = await lyrics.requestTitleFor(`${args.join(' ')}`); 
         let icon = await lyrics.requestIconFor(`${args.join(' ')}`); 
-        if(!args[0]) return message.channel.send('Please enter a song name!')
         try {
                 if(song.length > 1500){
                     let embed = new discord.MessageEmbed()

@@ -116,39 +116,42 @@ bot.on("messageDelete", async msg => {
     try {
         	//Find the logs channel
 	var logChannel = msg.guild.channels.cache.find(channel => channel.name.toLowerCase() === "logs")
+
 	//Create it if it doesn't exist
 	if(!logChannel){
 		logChannel = await msg.guild.channels.create("logs", {
 			type: "text",
 			nsfw: true,
-			reason: "CubeBot attempted to log something, but the logs channel did not exist."
+			reason: "Cubic attempted to log something, but the logs channel did not exist."
 		})
 	}
 	//Exit if the bot could not find or create the logs channel(E.g lacks permission)
 	if(!logChannel) return;
-	if(message.attachment) return;
 
-	//Logs the deleted message
-	logChannel.send({embed: {
-		author: {
-			name: `${msg.author.tag} Deleted A Message`,
-			icon_url: msg.author.avatarURL(),
-		},
-		fields: [
-			{
-				name: "Message",
-				value: ' '+msg.content.substr(0,500) + (msg.content.length > 500 ? "..." : "")
-			},
-			{
-				name: "Channel",
-				value: ' '+`<#${msg.channel.id}>`
-            }
+	if(msg.attachments.size > 0){
 
-        ]
-	}})
+			let embed = new Discord.MessageEmbed()
+			.setColor('#007dff')
+			.setThumbnail(msg.author.avatarURL())
+			.setTitle(`Attachment Deleted: ${msg.author.tag}`)
+			.addField('Channel', `<#${msg.channel.id}>`)
+			logChannel.send(embed)
+
+	}
+	else {
+		let embed = new Discord.MessageEmbed()
+		.setColor('#007dff')
+		.setThumbnail(msg.author.avatarURL())
+		.setTitle(`Message Deleted: ${msg.author.tag}`)
+		.addField('Message', msg.content.substr(0,500) + (msg.content.length > 500 ? "..." : ""))
+		.addField('Channel', `<#${msg.channel.id}>`)
+		logChannel.send(embed)
+	}
+
+
         
     } catch (error) {
-        logChannel.send('Error, Message probably probably contains an attachment or embed.')
+		logChannel.send('Error!')
     }
 })
 
@@ -184,39 +187,33 @@ bot.on("messageUpdate", async (oldMsg, newMsg) => {
 		logChannel = await oldMsg.guild.channels.create("logs", {
 			type: "text",
 			nsfw: true,
-			reason: "CubeBot attempted to log something, but the logs channel did not exist."
+			reason: "Cubic attempted to log something, but the logs channel did not exist."
 		})
 	}
 	//Exit if the bot could not find or create the logs channel(E.g lacks permission)
 	if(!logChannel) return
 
-	//Logs the deleted message
-	logChannel.send({embed: {
-		author: {
-			name: `${oldMsg.author.tag} Edited A Message`,
-			icon_url: oldMsg.author.avatarURL(),
-		},
-		fields: [
-			{
-				name: "Old Message",
-				value: ' '+oldMsg.content.substr(0,500) + (oldMsg.content.length > 500 ? "..." : "")
-			},
-			{
-				name: "New Message",
-				value: ' '+newMsg.content.substr(0,500) + (newMsg.content.length > 500 ? "..." : ""),
-				inline: true
-			},
-			{
-				name: "Channel",
-				value: ' '+`<#${oldMsg.channel.id}>`,
-			}
-		]
-	}})
+	let embed = new Discord.MessageEmbed()
+	.setColor('#007dff')
+	.setThumbnail(oldMsg.author.avatarURL())
+	.setTitle(`Message Edited: ${oldMsg.author.tag}`)
+	.addField('Old Message', oldMsg.content)
+	.addField('New Message', newMsg.content)
+	.addField('Channel', `<#${oldMsg.channel.id}>`)
+	logChannel.send(embed)
+
         
     } catch (error) {
-        logChannel.send('Error, Message probably contains an attachment/image.')
-    }
+		console.log(error)
+		logChannel.send('Error, Message probably contains an attachment/image.')
+	}
 })
+
+bot.on("disconnect", function(event) {
+	console.log(
+	  `The WebSocket has closed and will no longer attempt to reconnect`
+	);
+  });
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 

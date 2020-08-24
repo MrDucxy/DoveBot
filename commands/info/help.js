@@ -34,6 +34,7 @@ function getAll(bot, message) {
             .join("\n");
     }
 
+
     // Map all the categories
     const info = bot.categories
         .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)

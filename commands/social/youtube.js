@@ -30,6 +30,7 @@ module.exports = {
            .setFooter(`👍: ${video.likes} | 👎: ${video.dislikes} | 👁️: ${video.views}`)
 
           message.channel.send(embed)
+          console.log(video)
 
         } catch (error) {
             message.channel.send('An error has occurred.')
