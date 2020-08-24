@@ -41,7 +41,6 @@ module.exports = {
             } catch (error) {
                 return message.channel.send('Could not find results for that song!');
             }
-            console.log(data.tracks.items[0])
             // Do something with 'data'
         });
 
