@@ -21,6 +21,7 @@ module.exports = {
           .setThumbnail(video.thumbnails.default.url)
           .setTitle(video.title)
           .setURL(video.shortUrl)
+          .setAuthor('Cubic | YouTube', 'https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/youtube-512.png')
           .addField('Video Information',
            `**Length: ** ${video.minutes} Minutes, ${video.seconds} Seconds
            **Comments: **${video.commentCount}

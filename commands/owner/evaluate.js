@@ -27,6 +27,7 @@ module.exports = {
     
             let embed = new discord.MessageEmbed()
                 .setColor("#007dff")
+                .setAuthor('Cubic | Evaluate', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
                 .setTitle("Evaluation")
                 .addField("Evaluation Request:", `\`\`\`js\n${beautify(args.join(" "), { format: "js"})}\n\`\`\``)
                 .addField("Result:", evaluated)

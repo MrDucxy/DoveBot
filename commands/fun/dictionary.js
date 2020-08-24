@@ -22,6 +22,7 @@ module.exports = {
                             .setColor('#007dff')
                             .setTitle('"'+word + '" - Urban Dictionary')
                             .setThumbnail(icon)
+                            .setAuthor('Cubic | Urban Dictionary', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
                             .setDescription(stripIndents`**Defintion:** ${definition || "No definition."}
                             **Example:** ${example || "No example."}
                             **Upvotes:** ${thumbs_up || 0}

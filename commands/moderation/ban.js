@@ -35,6 +35,7 @@ module.exports = {
             .addField('Banned Time', message.createdAt)
             .addField('Banned In', message.channel)
             .addField('Reason', reason)
+            .setAuthor('Cubic | Moderation', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
     
         message.channel.send(`<@${target.id}> has been banned for: **${reason}**`);
         message.guild.members.ban(target);

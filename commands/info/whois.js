@@ -14,6 +14,7 @@ module.exports = {
         .setColor('#007dff')
         .setTitle(target.user.username)
         .setThumbnail(target.user.avatarURL())
+        .setAuthor('Cubic | WhoIs/User Lookup', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
         .addField('User Info',
          `**Display Name: **${target.displayName}
          **ID: **${target.user.id}

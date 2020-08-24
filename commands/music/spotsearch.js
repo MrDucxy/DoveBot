@@ -18,15 +18,32 @@ module.exports = {
         if(!args[0]) return message.channel.send('Please enter a song name!')
 
         let song = spotify.search({ type: 'track', query: args.join(' '), limit: 1 }, function(err, data) {
-            if ( err ) {
-                console.log('Error occurred: ' + err);
-                return;
+            try {
+                let track = data.tracks.items[0];
+                console.log(song)
+                let embed = new discord.MessageEmbed()
+                .setColor('#007dff')
+                .setTitle(track.artists[0].name + ' - ' + track.name)
+                .setThumbnail(track.album.images[0].url)
+                .setURL(track.external_urls.spotify)
+                .setAuthor('Cubic | Spotify', 'https://www.magneticmag.com/.image/t_share/MTY1MTczMzk2MzUzNTkwNTg0/spotify_icon_cmyk_green.png')
+                .addField('Song Information',
+           `**Album: ** ${track.album.name}
+           **Album Release Date: ** ${track.album.release_date}
+           **Album Total Tracks: ** ${track.album.total_tracks}
+           **Length: ** ${track.duration_ms}
+           **Explicit: **${track.explicit ? 'Yes':'No'}
+           **Popularity: **${track.popularity}% (Higher = More Popular)`
+           )
+            
+                message.channel.send(embed)
+    
+            } catch (error) {
+                return message.channel.send('Could not find results for that song!');
             }
-            console.log(data)
+            console.log(data.tracks.items[0])
             // Do something with 'data'
         });
-
-        if(!song) return message.channel.send('Could not find results for that song!');
 
         try {
             console.log(song)
