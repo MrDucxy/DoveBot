@@ -16,7 +16,8 @@ module.exports = {
             )
           }
     
-        message.channel.send(`<@${target.id}>` + ' is ' + between(1, 100) + '% dank.');
+        if(!target) return message.channel.send(`You are ` + between(1, 100) + '% dank.')
+        else { message.channel.send(`<@${target.id}>` + ' is ' + between(1, 100) + '% dank.'); }
     }
 
 };

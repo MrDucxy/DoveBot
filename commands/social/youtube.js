@@ -22,7 +22,7 @@ module.exports = {
           .setTitle(video.title)
           .setURL(video.shortUrl)
           .addField('Video Information',
-           `**Length: ** ${video.minutes}:${video.seconds}
+           `**Length: ** ${video.minutes} Minutes, ${video.seconds} Seconds
            **Comments: **${video.commentCount}
            **Video ID: **${video.id}
            **Made For Kids? **${video.kids.madeForKids ? "Yes":"No"}`
