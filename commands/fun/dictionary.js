@@ -20,14 +20,13 @@ module.exports = {
 
                         let embed = new discord.MessageEmbed()
                             .setColor('#007dff')
+                            .setFooter(`👍: ${thumbs_up || 0} | 👎: ${thumbs_down || 0}`)
+                            .setURL(permalink)
                             .setTitle('"'+word + '" - Urban Dictionary')
                             .setThumbnail(icon)
                             .setAuthor('Cubic | Urban Dictionary', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
                             .setDescription(stripIndents`**Defintion:** ${definition || "No definition."}
-                            **Example:** ${example || "No example."}
-                            **Upvotes:** ${thumbs_up || 0}
-                            **Downvotes:** ${thumbs_down || 0}
-                            **Link:** [${word}](${permalink || "https://www.urbandictionary.com/"})`)
+                            **Example:** ${example || "No example."}`)
 
                             message.channel.send(embed)
                 })
