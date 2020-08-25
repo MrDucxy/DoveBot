@@ -1,5 +1,5 @@
 const discord = require('discord.js');
-const replyFile = require('./devTips.json')
+const replyFile = require('./tipsArrays/devTips.json')
 
 module.exports = {
         name: "programmingtip",
