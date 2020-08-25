@@ -21,6 +21,13 @@ module.exports = {
     }
 }
 
+
+
+
+
+
+
+
 function getAll(bot, message) {
     const embed = new MessageEmbed()
         .setColor("#007dff")
@@ -31,8 +38,7 @@ function getAll(bot, message) {
     const commands = (category) => {
         return bot.commands
             .filter(cmd => cmd.category.toLowerCase() === category)
-            .map(cmd => `- \`${cmd.name}\``)
-            .join("\n");
+            .map(cmd => ` \`${cmd.name}\``)
     }
 
 
@@ -41,7 +47,7 @@ function getAll(bot, message) {
         .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
         .reduce((string, category) => string + "\n" + category);
 
-    return message.channel.send(embed.setDescription(info));
+    return message.channel.send(embed.addField('Commands', info, inline = true));
 }
 
 function getCMD(bot, message, input) {
