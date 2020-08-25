@@ -30,7 +30,7 @@ const antiSpam = new AntiSpam({
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is up and running in ${bot.guilds.cache.size} servers.`)
-    bot.user.setActivity(`${bot.guilds.cache.size} servers`, {type: "WATCHING"})
+    bot.user.setActivity(`${bot.guilds.cache.size} servers | $help`, {type: "WATCHING"})
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////
