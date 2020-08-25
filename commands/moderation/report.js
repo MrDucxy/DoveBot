@@ -24,6 +24,7 @@ module.exports = {
         let reports = message.guild.channels.cache.find(channel => channel.name === 'reports');
     
         let embed = new discord.MessageEmbed()
+            .setTitle(`${message.author.tag} reported a user.`)
             .setColor('#007dff')
             .setThumbnail(target.avatarURL)
             .addField('Reported Member', `<@${target.id}> (${target.user.id})`)
