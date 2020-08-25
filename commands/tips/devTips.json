@@ -1,0 +1,15 @@
+{
+    "devTips":
+    [
+        "Programming with a light theme can strain your eyes, making it harder to program due to blue light. Make the switch and change your theme to dark mode!",
+        "There are a TON of multi-language code editors/IDEs out there. Choose one wisely as they all have different features! (My favorite is VS Code, I was written in it!)",
+        "Programming doesn't always come quick, there will almost ALWAYS be frustration and anger. This is why if you are a beginner, you should start with the basics. Don't jump right into something you have never done.",
+        "Coding without help is highly recommended, this way you can try to learn on your own and master different skill sets at your own pace. Only use tutorials if you absolutely have to!",
+        "Change it until it works. Do not get frusturated over a few lines of code not working, you almost always want to fiddle around with code that does not work to see if you can fix it.",
+        "Take breaks every few hours. Programming can be fun and takes a lot of time, but you still need to eat and drink and let your fingers rest.",
+        "Start off with simpler languages, like HTML/CSS, JavaScript, Etc; This will help you learn the basics of programming and will allow you to start working on harder things down the road.",
+        "Documentation. Documentation is your best friend while programming something. Need help with a library? Find its documentation to find out how to do something.",
+        "Do not use old/outdated tutorials or code. This can lead to big problems like broken code, security risks, etc.",
+        "Be organized. Being organized will be a LIFE SAVER down the road when you start writing hundreds of thousands lines of code. Being able to find something quickly is a necessity."
+    ]
+}
