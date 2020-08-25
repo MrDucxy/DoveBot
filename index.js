@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
 const { badwords } = require("./badwords.json") 
+const blacklistUsers = require("./blacklist.json") 
 
 
 global.__basedir = __dirname;
@@ -52,6 +53,7 @@ bot.on('message', (message) =>{
 	try {
 
 		antiSpam.message(message);
+
 	
 		if(!message.member.hasPermission('ADMINISTRATOR') || !message.author.bot){
 			let confirm = false;
@@ -93,12 +95,18 @@ bot.on('message', (message) =>{
 	
 		let command = bot.commands.get(cmd);
 		if(!command) command = bot.commands.get(bot.aliases.get(cmd));
+		
 	
-		if(command)
-			command.run(bot, message, args)
+
+		if(command && !blacklistUsers.blacklistedUsers.includes(message.author.id)){
+			command.run(bot, message, args, blacklistUsers)
+		}
+		else{
+			message.reply('You are blacklisted from using Cubic!')
+		}
 		
 	} catch (error) {
-		console.log('Error on message event!')
+		console.log('Error on message event!' + error)
 	}
 
 });
