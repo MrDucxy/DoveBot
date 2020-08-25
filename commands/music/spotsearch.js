@@ -43,17 +43,6 @@ module.exports = {
             // Do something with 'data'
         });
 
-        try {
-            console.log(song)
-            let embed = new discord.MessageEmbed()
-            .setColor('#007dff')
-            .setTitle('Spotify')
-        
-            message.channel.send(embed)
-
-        } catch (error) {
-            return message.channel.send('Error!');
-        }
         
     } 
 
