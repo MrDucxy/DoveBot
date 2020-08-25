@@ -132,6 +132,7 @@ bot.on("messageDelete", async msg => {
 
 			let embed = new Discord.MessageEmbed()
 			.setColor('#007dff')
+			.setAuthor('Cubic | Moderation', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
 			.setThumbnail(msg.author.avatarURL())
 			.setTitle(`Attachment Deleted: ${msg.author.tag}`)
 			.addField('Channel', `<#${msg.channel.id}>`)
@@ -141,6 +142,7 @@ bot.on("messageDelete", async msg => {
 	else {
 		let embed = new Discord.MessageEmbed()
 		.setColor('#007dff')
+		.setAuthor('Cubic | Moderation', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
 		.setThumbnail(msg.author.avatarURL())
 		.setTitle(`Message Deleted: ${msg.author.tag}`)
 		.addField('Message', msg.content.substr(0,500) + (msg.content.length > 500 ? "..." : ""))
@@ -196,6 +198,7 @@ bot.on("messageUpdate", async (oldMsg, newMsg) => {
 	let embed = new Discord.MessageEmbed()
 	.setColor('#007dff')
 	.setThumbnail(oldMsg.author.avatarURL())
+	.setAuthor('Cubic | Moderation', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
 	.setTitle(`Message Edited: ${oldMsg.author.tag}`)
 	.addField('Old Message', oldMsg.content)
 	.addField('New Message', newMsg.content)
