@@ -34,7 +34,7 @@ module.exports = {
           console.log(video)
 
         } catch (error) {
-            message.channel.send('An error has occurred.')
+            message.channel.send('I has trouble finding a video matching your search.')
         }
 
     }

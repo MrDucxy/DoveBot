@@ -31,7 +31,7 @@ module.exports = {
             .setColor('#007dff')
             .setThumbnail(target.avatarURL)
             .addField('Banned Member', `<@${target.id}> (${target.user.id})`)
-            .addField('Banned By', `<@${message.author.username}> (${message.author.id})`)
+            .addField('Banned By', `<@${message.author.id}> (${message.author.id})`)
             .addField('Banned Time', message.createdAt)
             .addField('Banned In', message.channel)
             .addField('Reason', reason)

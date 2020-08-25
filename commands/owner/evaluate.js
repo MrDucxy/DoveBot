@@ -3,7 +3,7 @@ const beautify = require("beautify")
 
 module.exports = {
         name: "evaluate",
-        aliases: ["execute"],
+        aliases: ["execute", "eval"],
         category: "Owner",
         description: "Evaluates JavaScript",
         usage: "$evaluate <code>",
