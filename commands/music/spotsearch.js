@@ -31,7 +31,6 @@ module.exports = {
            `**Album: ** ${track.album.name}
            **Album Release Date: ** ${track.album.release_date}
            **Album Total Tracks: ** ${track.album.total_tracks}
-           **Length: ** ${track.duration_ms}
            **Explicit: **${track.explicit ? 'Yes':'No'}
            **Popularity: **${track.popularity}% (Higher = More Popular)`
            )
