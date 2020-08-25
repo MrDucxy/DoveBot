@@ -96,7 +96,7 @@ bot.on('message', (message) =>{
 		let command = bot.commands.get(cmd);
 		if(!command) command = bot.commands.get(bot.aliases.get(cmd));
 		
-		if(command && !blacklistUsers.blacklistedUsers.includes(message.author.id)){
+		if(command && blacklistUsers.blacklistedUsers.includes(message.author.id)){
 			return message.reply('You are blacklisted from using Cubic!')
 		}
 
