@@ -17,7 +17,7 @@ module.exports = {
         .setAuthor('Cubic | Reddit', 'https://www.redditinc.com/assets/images/site/reddit-logo.png')
         .setImage(img)
         .setTitle(`Subreddit: /r/${args[0]}`)
-        .setURL(`https://reddit.com/${args[0]}`)
+        .setURL(`https://reddit.com/r/${args[0]}`)
     
         message.reply(embed);
     }
