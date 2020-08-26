@@ -16,7 +16,7 @@ module.exports = {
             ping.send(function(err, res){
                 let embed = new discord.MessageEmbed()
                 .setColor('#007dff')
-                .setTitle('Ping Response: '+ args[0])
+                .setTitle('Ping Response: ')
                 .addField('Host:', ping._host)
                 .addField('Time',`${Math.round(res)}ms`)
                 .setAuthor('Cubic | Ping', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
