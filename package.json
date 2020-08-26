@@ -24,6 +24,7 @@
     "solenolyrics": "^5.0.0",
     "superagent": "^6.0.0",
     "urban": "^0.3.2",
+    "user-instagram": "^2.1.2",
     "wikijs-33": "^1.1.1",
     "ytdl-core": "^3.2.2"
   }
