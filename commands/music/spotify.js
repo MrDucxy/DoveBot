@@ -8,8 +8,8 @@ var spotify = new Spotify({
 
 
 module.exports = {
-        name: "spotsearch",
-        aliases: ["spotify", "spot"],
+        name: "spotify",
+        aliases: ["spotsearch", "spot"],
         category: "Music",
         description: "Get information about your favorite song!",
         usage: "$spotsearch <song name>",
