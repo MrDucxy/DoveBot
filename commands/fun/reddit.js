@@ -14,7 +14,7 @@ module.exports = {
     
         const embed = new discord.MessageEmbed()
         .setColor('#007dff')
-        .setAuthor('Cubic | Reddit', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+        .setAuthor('Cubic | Reddit', 'https://www.redditinc.com/assets/images/site/reddit-logo.png')
         .setImage(img)
         .setTitle(`Subreddit: /r/${args[0]}`)
         .setURL(`https://reddit.com/${args[0]}`)
