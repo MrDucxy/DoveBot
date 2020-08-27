@@ -16,16 +16,17 @@ module.exports = {
         if(!args[0]){
             return message.channel.send('You need to provide something to evaluate.')
         }
+
+        if (args.join(" ").toLowerCase().includes("token")) {
+            return;
+        }
+
+        const toEval = args.join(" ")
+        const evaluated = eval(toEval)
+
+        if(evaluated.includes('NzE3NTgwOTI4NjgzMjEyODgy.XtcZUQ.og_yq29sIDyDvYo7x17yf_4CTyM')) return message.channel.send('Ducxy, you retard. That contains your token.')
     
         try {
-            if (args.join(" ").toLowerCase().includes("token")) {
-                return;
-            }
-    
-            const toEval = args.join(" ")
-            const evaluated = eval(toEval)
-
-            if(evaluated.includes('NzE3NTgwOTI4NjgzMjEyODgy.XtcZUQ.og_yq29sIDyDvYo7x17yf_4CTyM')) return message.channel.send('Ducxy, you retard. That contains your token.')
     
             let embed = new discord.MessageEmbed()
                 .setColor("#007dff")

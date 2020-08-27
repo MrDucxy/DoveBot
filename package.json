@@ -16,6 +16,7 @@
     "discord.js": "^12.3.1",
     "figlet": "^1.5.0",
     "node-spotify-api": "^1.1.1",
+    "paiza-io": "^0.2.3",
     "ping-lite": "^2.0.2",
     "popyt": "^4.1.1",
     "random-puppy": "^1.1.0",
