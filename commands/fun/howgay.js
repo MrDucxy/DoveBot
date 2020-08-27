@@ -16,7 +16,7 @@ module.exports = {
           }
     
         if(!target) message.channel.send(`You are ` + between(1, 100) + '% gay :rainbow_flag:')
-        else { message.channel.send(`<@${target.id}>` + ' is ' + between(1, 100) + '% gay :rainbow_flag:'); }
+        else { message.channel.send(`<@${target.id}>` + ' is ' + between(0, 100) + '% gay :rainbow_flag:'); }
     }
 
 };

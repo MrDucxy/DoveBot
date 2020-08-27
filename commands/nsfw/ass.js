@@ -1,5 +1,5 @@
 const discord = require('discord.js');
-const superagent = require('superagent')
+const trev = require('trev')
 
 module.exports = {
         name: "ass",
@@ -9,24 +9,24 @@ module.exports = {
         usage: "$ass",
     run: async (bot, message, args) => {
 
+      let ass = await trev.nsfw.ass();
 
-        if (message.channel.nsfw === true) {
-            superagent.get('https://nekobot.xyz/api/image')
-            .query({ type: 'ass'})
-            .end((err, response) => {
-                let embed = new discord.MessageEmbed()
-                .setTitle('Have some ass!')
-                .setImage(response.body.message)
-                .setColor('#007dff')
-                .setFooter('NSFW images provided by: https://nekobot.xyz/')
-                message.channel.send(embed);
-            });
-          } else {
-            message.channel.send("This isn't an NSFW channel!")
-          }
+      if (message.channel.nsfw === true) {
+        try {
+          let embed = new discord.MessageEmbed()
+          .setTitle('Have some round ass!')
+          .setDescription(ass.title)
+          .setImage(ass.media)
+          .setColor('#007dff')
+          .setFooter(`From: ${ass.subreddit} | Powered By: Trev`)
+          message.channel.send(embed);
+        } catch (error) {
+          message.channel.send('Error! This is probably caused by shitty Trev lol.');
+        }
+      } else {
+          message.channel.send("This isn't an NSFW channel!")
+      }
 
-          
-        
     } 
 
 };
