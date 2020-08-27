@@ -101,7 +101,7 @@ bot.on('message', (message) =>{
 		}
 
 		if(command && !blacklistUsers.blacklistedUsers.includes(message.author.id)){
-			command.run(bot, message, args, blacklistUsers)
+			command.run(bot, message, args, blacklistUsers, botconfig)
 		}
 		
 	} catch (error) {
