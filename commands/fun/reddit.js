@@ -1,28 +1,48 @@
 const discord = require('discord.js');
-const randomPuppy = require('random-puppy');
-const { id } = require('common-tags');
+const trev = require('trev')
 
 module.exports = {
         name: "reddit",
         aliases: ["subreddit"],
-        category: "Fun",
-        description: "Get an image from your favorite subreddit!",
-        usage: "$reddit",
+        category: "NSFW",
+        description: "Shows some nice NSFW content.",
+        usage: "$pussy",
     run: async (bot, message, args) => {
 
-        if(!args[0])return message.channel.send('Please specify a subreddit!')
-        const img = await randomPuppy(args[0]);
-        if(!randomPuppy) return message.channel.send('That subreddit does not exist or is marked as NSFW.')
-    
-        const embed = new discord.MessageEmbed()
-        .setColor('#007dff')
-        .setAuthor('Cubic | Reddit', 'https://www.redditinc.com/assets/images/site/reddit-logo.png')
-        .setImage(img)
-        .setTitle(`Subreddit: /r/${args[0]}`)
-        .setURL(`https://reddit.com/r/${args[0]}`)
-    
-        message.reply(embed);
-    }
+      let image = await trev.getCustomSubreddit(`/r/${args[0]}`)
+
+      if (image.over_18 && message.channel.nsfw === true) {
+        try {
+          let embed = new discord.MessageEmbed()
+          .setTitle(`Subreddit: ${image.subreddit}`)
+          .setURL(image.permalink)
+          .setDescription(image.title)
+          .setImage(image.media)
+          .setColor('#007dff')
+          .setFooter(`Powered By: Trev`)
+          message.channel.send(embed);
+        } catch (error) {
+          message.channel.send('Error! This is probably caused by shitty Trev lol.');
+        }
+      } else if(image.over_18 && message.channel.nsfw === false){
+          message.channel.send("This isn't an NSFW channel!")
+      }
+      else{
+        try {
+            let embed = new discord.MessageEmbed()
+            .setTitle(`From: ${image.subreddit}`)
+            .setURL(image.permalink)
+            .setDescription(image.title)
+            .setImage(image.media)
+            .setColor('#007dff')
+            .setFooter(`Powered By: Trev`)
+            message.channel.send(embed);
+          } catch (error) {
+            message.channel.send('Error! This is probably caused by shitty Trev lol.');
+          }
+      }
+
+    } 
 
 };
 
