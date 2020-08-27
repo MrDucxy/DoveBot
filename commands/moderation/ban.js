@@ -29,7 +29,7 @@ module.exports = {
     
         let embed = new discord.MessageEmbed()
             .setColor('#007dff')
-            .setThumbnail(target.avatarURL)
+            .setThumbnail(target.user.avatarURL())
             .addField('Banned Member', `<@${target.id}> (${target.user.id})`)
             .addField('Banned By', `<@${message.author.id}> (${message.author.id})`)
             .addField('Banned Time', message.createdAt)

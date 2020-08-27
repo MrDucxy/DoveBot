@@ -1,5 +1,6 @@
 const discord = require('discord.js');
 const randomPuppy = require('random-puppy');
+const { id } = require('common-tags');
 
 module.exports = {
         name: "reddit",
@@ -11,6 +12,7 @@ module.exports = {
 
         if(!args[0])return message.channel.send('Please specify a subreddit!')
         const img = await randomPuppy(args[0]);
+        if(!randomPuppy) return message.channel.send('That subreddit does not exist or is marked as NSFW.')
     
         const embed = new discord.MessageEmbed()
         .setColor('#007dff')

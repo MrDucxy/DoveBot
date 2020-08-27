@@ -28,7 +28,7 @@ module.exports = {
     
         let embed = new discord.MessageEmbed()
             .setColor('#007dff')
-            .setThumbnail(target.avatarURL)
+            .setThumbnail(target.user.avatarURL())
             .addField('Kicked Member', `<@${target.id}> (${target.user.id})`)
             .addField('Kicked By', `<@${message.author.id}> (${message.author.id})`)
             .addField('Kicked Time', message.createdAt)
