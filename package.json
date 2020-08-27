@@ -11,23 +11,17 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "beautify": "0.0.8",
-    "colorthief": "^2.3.2",
     "common-tags": "^1.8.0",
     "discord-anti-spam": "^2.4.1",
     "discord.js": "^12.3.1",
-    "dotenv": "^8.2.0",
     "figlet": "^1.5.0",
     "node-spotify-api": "^1.1.1",
-    "opusscript": "0.0.7",
     "ping-lite": "^2.0.2",
     "popyt": "^4.1.1",
     "random-puppy": "^1.1.0",
     "solenolyrics": "^5.0.0",
-    "soundcloud-scraper": "^3.0.0",
     "superagent": "^6.0.0",
     "trev": "^1.0.7",
-    "urban": "^0.3.2",
-    "wikijs-33": "^1.1.1",
-    "ytdl-core": "^3.2.2"
+    "urban": "^0.3.2"
   }
 }
