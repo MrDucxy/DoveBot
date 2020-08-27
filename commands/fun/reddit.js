@@ -4,10 +4,12 @@ const trev = require('trev')
 module.exports = {
         name: "reddit",
         aliases: ["subreddit"],
-        category: "NSFW",
-        description: "Shows some nice NSFW content.",
-        usage: "$pussy",
+        category: "fun",
+        description: "Gets a random Reddit post.",
+        usage: "$reddit <subreddit>",
     run: async (bot, message, args) => {
+
+        if(!args[0]) return message.channel.send('Please specify a subreddit!')
 
       let image = await trev.getCustomSubreddit(`/r/${args[0]}`)
 
