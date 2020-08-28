@@ -88,21 +88,21 @@ bot.on('message', (message) =>{
 		if(!message.guild) return;
 		if(!message.content.startsWith(botconfig.prefix)) return;
 	
-		const args = message.content.slice(botconfig.prefix.length).trim().split("/ +/g");
-		const cmd = args.shift().toLowerCase();
-	
-		if(cmd.length === 0) return;
-	
-		let command = bot.commands.get(cmd);
-		if(!command) command = bot.commands.get(bot.aliases.get(cmd));
-		
-		if(command && blacklistUsers.blacklistedUsers.includes(message.author.id)){
-			return message.reply('You are blacklisted from using Cubic!')
-		}
+        const args = message.content.slice(botconfig.prefix.length).trim().split("/ +/g");
+        const cmd = args.shift().toLowerCase();
+    
+        if(cmd.length === 0) return;
+    
+        let command = bot.commands.get(cmd);
+        if(!command) command = bot.commands.get(bot.aliases.get(cmd));
+        
+        if(command && blacklistUsers.blacklistedUsers.includes(message.author.id)){
+            return message.reply('You are blacklisted from using Cubic!')
+        }
 
-		if(command && !blacklistUsers.blacklistedUsers.includes(message.author.id)){
-			command.run(bot, message, args, blacklistUsers, botconfig)
-		}
+        if(command && !blacklistUsers.blacklistedUsers.includes(message.author.id)){
+            command.run(bot, message, args, blacklistUsers, botconfig)
+        }
 		
 	} catch (error) {
 		console.log('Error on message event!' + error)
