@@ -27,13 +27,13 @@ module.exports = {
 
                     server.queue.shift();
 
-                    server.dispatcher.on("end", function(){
+                    server.dispatcher.on("finish", () =>{
                         if(server.queue[0]){
                             play(connection, message);
-                        } else{
+                        }else{
                             connection.disconnect();
                         }
-                    })
+                        });
                 }
 
 
@@ -70,6 +70,8 @@ module.exports = {
                     server.dispatcher.end();
                     message.channel.send('Stopped the queue.')
                 }
+
+                if(message.guild.connection) message.guild.voiceConnection.disconnect();
             break;
 
         }
