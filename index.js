@@ -71,7 +71,7 @@ bot.on('message', (message) =>{
     if(command){
 		command.run(bot, message, args, blacklistUsers, botconfig)
 	}
-		if(!message.member.permissions.hasPermission('ADMINISTRATOR') || !message.author.bot){
+		if(!message.member.permissions.has('ADMINISTRATOR') || !message.author.bot){
 			let confirm = false;
 	   
 			var i;
