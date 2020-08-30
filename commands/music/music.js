@@ -210,6 +210,16 @@ module.exports = {
                     message.channel.send('The music has resumed!')
 
                 break;
+
+
+                case loop:
+
+                    if(!serverQueue) return message.channel.send('There is nothing playing!')
+                    serverQueue.loop = !serverQueue.loop
+
+                    return message.channel.send(`Loop ${serverQueue.loop ? '**Enabled 🔁**' : '**Disabled**!'}`)
+
+                break;
             }
         
     
@@ -224,7 +234,7 @@ module.exports = {
     
                 const dispatcher = serverQueue.connection.play(ytdl(song.url))
                 .on('finish', () => {
-                    serverQueue.songs.shift()
+                    if(!serverQueue.loop) serverQueue.songs.shift()
                     play(guild, serverQueue.songs[0])
                 })
                 .on('error', error => {
