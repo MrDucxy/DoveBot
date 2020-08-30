@@ -1,5 +1,4 @@
 const discord = require('discord.js');
-var pingJS = require('ping-lite');
 
 
 module.exports = {
