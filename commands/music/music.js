@@ -2,6 +2,8 @@ const discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const opus = require('opusscript');
 const { connect } = require('superagent');
+const { YouTube } = require('popyt')
+const youtube = new YouTube('AIzaSyD7CoeqcMFRIHVnq2C2tomXm1BZ05gXGEc')
 
 const queue = new Map()
 
@@ -10,103 +12,233 @@ module.exports = {
         aliases: ["tunes"],
         category: "Music",
         description: "Play some music in a voice channel!",
-        usage: "$music <function(play, pause, skip, etc)> <song name/link>",
+        usage: "$music <function(play, pause, resume, skip, stop, np, volume, queue)> (song name/link)",
     run: async (bot, message, args) => {
         const voiceChannel = message.member.voice.channel;
-        const permissions = voiceChannel.permissionsFor(message.client.user)
-
         if(!voiceChannel) return message.channel.send('You must be in a voice channel to use this command!')
+
+        let DJ = message.member.roles.cache.some(role => role.name === 'DJ');
+
+        const permissions = voiceChannel.permissionsFor(message.client.user)
         if(!permissions.has('CONNECT')) return message.channel.send('I do not have voice permissions!')
         if(!permissions.has('SPEAK')) return message.channel.send('I do not have voice permissions!')
+
         if(!args[0]) return message.channel.send('Please specify what you want to do (play, pause, skip, etc.)')
+
         const serverQueue = queue.get(message.guild.id)
 
-        switch(args[0]){
+        try {
 
-            case 'play':
+            switch(args[0]){
 
-                const songInfo = await ytdl.getInfo(args[1])
-                const song = {
-                    title: songInfo.videoDetails.title,
-                    url: songInfo.videoDetails.video_url,
-                    thumbnail: songInfo.videoDetails.thumbnail.thumbnails[1].url
-                }
+                case 'play':
 
-                if(!serverQueue){
-                    const queueConstruct = {
-                        textChannel: message.channel,
-                        voiceChannel: voiceChannel,
-                        connection: null,
-                        songs: [],
-                        volume: 5,
-                        playing: true
-                    }
-                    queue.set(message.guild.id, queueConstruct)
-        
-                    queueConstruct.songs.push(song)
-        
+                    const url = args[1] ? args[1].replace(/<(._)>/g, '$1') : ''
+                    const searchString = args.slice(1).join(' ')
+
+                    var video;
+
                     try {
-                        var connection = await voiceChannel.join()
-                        queueConstruct.connection = connection
-                        play(message.guild, queueConstruct.songs[0])
+                        if(args[1].includes('https://youtube.com/watch', 'https://www.youtube.com/watch')){
+                            var video = await youtube.getVideo(url)
+                        } else{
+                            try {
+                                var video = await youtube.getVideo(searchString, 1)
+                            } catch (error) {
+                                return message.channel.send('I could not find any search results!')
+                            }
+                        }
+                        
                     } catch (error) {
-                        queue.delete(message.guild.id)
-                        return message.channel.send('There was an error connecting to the voice channel!');
+                        message.channel.send('An error has occurred!')
                     }
-                } else{
-                    serverQueue.songs.push(song)
+                    
+    
+                    const song = {
+                        title: video.title,
+                        url: video.shortUrl,
+                        thumbnail: video.thumbnails.default.url
+                    }
+    
+                    if(!serverQueue){
+                        const queueConstruct = {
+                            textChannel: message.channel,
+                            voiceChannel: voiceChannel,
+                            connection: null,
+                            songs: [],
+                            volume: 5,
+                            playing: true
+                        }
+                        queue.set(message.guild.id, queueConstruct)
+            
+                        queueConstruct.songs.push(song)
+            
+                        try {
+                            var connection = await voiceChannel.join()
+                            queueConstruct.connection = connection
+                            play(message.guild, queueConstruct.songs[0])
+    
+                            let embed = new discord.MessageEmbed()
+                            .setColor('#007dff')
+                            .setTitle(song.title)
+                            .setDescription('Now Playing!')
+                            .setThumbnail(song.thumbnail)
+                            .setURL(song.url)
+                            .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                            
+                            return message.channel.send(embed)
+                        } catch (error) {
+                            queue.delete(message.guild.id)
+                            return message.channel.send('There was an error connecting to the voice channel!');
+                        }
+                    } else{
+                        serverQueue.songs.push(song)
+                        let embed = new discord.MessageEmbed()
+                        .setColor('#007dff')
+                        .setTitle(song.title)
+                        .setDescription('Song added to queue!')
+                        .setThumbnail(song.thumbnail)
+                        .setURL(song.url)
+                        .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                        
+                        message.channel.send(embed)
+                    }
+    
+    
+    
+                break;
+    
+    
+    
+                case 'stop':
+                    if (!DJ) {
+                        return message.channel.send('You must have DJ to stop the queue.')
+                    }
+                    if(!serverQueue) return message.channel.send('There is nothing playing!')
+                    serverQueue.songs = []
+                    serverQueue.connection.dispatcher.end()
+                    message.channel.send('Stopped playing music and cleared the queue!')
+                break;
+    
+    
+    
+                case 'forceskip':
+                    if (!DJ) {
+                        return message.channel.send('You must have DJ to forceskip.')
+                    }
+                    if(!serverQueue) return message.channel.send('There is nothing playing!')
+                    serverQueue.connection.dispatcher.end()
+                    message.channel.send('Force skipped the current song!')
+                break;
+    
+    
+    
+                case 'volume':
+                    if (!DJ && args[1]) {
+                        return message.channel.send('You must have DJ to adjust volume.')
+                    }
+                    if(!serverQueue) return message.channel.send('There is nothing playing!')
+                    if(!args[1]) return message.channel.send(`The current volume is: **${serverQueue.volume}/5**. \nSpecify a number if you want to change the volume.`)
+                    if(isNaN(args[1])) return message.channel.send(`That is not a valid volume amount!`)
+                    if(args[1] > 100) return message.channel.send(`The maximum volume is 100/5 to protect user's speakers and/or ears. Default (100%) is **ONLY 5/5!**`)
+                    serverQueue.volume = args[1]
+                    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5)
+                    message.channel.send(`The volume is now set to: **${args[1]}**`)
+                break;
+
+                case 'np':
+
+                    if(!serverQueue) return message.channel.send('There is nothing playing!')
                     let embed = new discord.MessageEmbed()
                     .setColor('#007dff')
-                    .setTitle(song.title)
-                    .setDescription('Song added to queue!')
-                    .setThumbnail(song.thumbnail)
-                    .setURL(song.url)
+                    .setTitle(serverQueue.songs[0].title)
+                    .setDescription('Currently Playing Song')
+                    .setThumbnail(serverQueue.songs[0].thumbnail)
+                    .setURL(serverQueue.songs[0].url)
                     .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
-                    
-                    return message.channel.send(embed)
-                }
 
+                    message.channel.send(embed)
 
+                break;
+    
+                case 'queue':
 
-            break;
+                    if(!serverQueue) return message.channel.send('There is nothing playing!')
+                    let songMap = serverQueue.songs.map(song => `**--> ** ${song.title}`).join('\n')
 
-            case 'stop':
-                if(!serverQueue) return message.channel.send('There is nothing playing!')
-                serverQueue.songs = []
-                serverQueue.connection.dispatcher.end()
-                message.channel.send('Stopped playing music!')
+                    if(songMap.length > 2000){
+                        let embed1 = new discord.MessageEmbed()
+                        .setColor('#007dff')
+                        .setTitle('Server Queue')
+                        .setDescription(songMap.substring(0, 2000) + '\r**List too long for embed...**')
+                        .setThumbnail('https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                        .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+    
+                        message.channel.send(embed1)
+                    } else {
+                        let embed1 = new discord.MessageEmbed()
+                        .setColor('#007dff')
+                        .setTitle('Server Queue')
+                        .setDescription(songMap)
+                        .setThumbnail('https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                        .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+    
+                        message.channel.send(embed1)
+                    }
+                break;
 
-            break;
+                case 'pause':
+                    if (!DJ && args[1]) {
+                        return message.channel.send('You must have DJ to pause a song.')
+                    }
+                    if(!serverQueue) return message.channel.send('There is nothing playing!')
+                    if(!serverQueue.playing) return message.channel.send('The music is already paused!')
+                    serverQueue.playing = false
+                    serverQueue.connection.dispatcher.pause()
+                    message.channel.send('The music has been paused!')
 
-            case 'skip':
-                if(!serverQueue) return message.channel.send('There is nothing playing!')
-                serverQueue.connection.dispatcher.end()
-                message.channel.send('Skipped the current song!')
+                break;
 
-            break;
+                case 'resume':
+                    if (!DJ && args[1]) {
+                        return message.channel.send('You must have DJ to pause a song.')
+                    }
+                    if(!serverQueue) return message.channel.send('There is nothing playing!')
+                    if(serverQueue.playing) return message.channel.send('The music is already playing!')
+                    serverQueue.playing = true
+                    serverQueue.connection.dispatcher.resume()
+                    message.channel.send('The music has resumed!')
 
-        }
-
-        function play(guild, song){
-            const serverQueue = queue.get(guild.id)
-
-            if(!song){
-                serverQueue.voiceChannel.leave()
-                queue.delete(guild.id)
-                return
+                break;
             }
-
-            const dispatcher = serverQueue.connection.play(ytdl(song.url))
-            .on('finish', () => {
-                serverQueue.songs.shift()
-                play(guild, serverQueue.songs[0])
-            })
-            .on('error', error => {
-                console.log(error)
-            })
-            dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
-
+        
+    
+            function play(guild, song){
+                const serverQueue = queue.get(guild.id)
+    
+                if(!song){
+                    serverQueue.voiceChannel.leave()
+                    queue.delete(guild.id)
+                    return
+                }
+    
+                const dispatcher = serverQueue.connection.play(ytdl(song.url))
+                .on('finish', () => {
+                    serverQueue.songs.shift()
+                    play(guild, serverQueue.songs[0])
+                })
+                .on('error', error => {
+                    
+                })
+                dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
+    
+            }
+            
+        } catch (error) {
+            return message.channel.send('An error has occurred!')
         }
+
+
         
     } 
 
