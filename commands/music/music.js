@@ -208,11 +208,11 @@ module.exports = {
                     serverQueue.playing = true
                     serverQueue.connection.dispatcher.resume()
                     message.channel.send('The music has resumed!')
-
+$
                 break;
 
 
-                case loop:
+                case "loop":
 
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
                     serverQueue.loop = !serverQueue.loop
