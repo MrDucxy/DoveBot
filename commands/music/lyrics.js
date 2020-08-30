@@ -20,7 +20,7 @@ module.exports = {
                     .setColor('#007dff')
                     .setDescription(song.substring(0, 1500) + '-\r**...**')
                     .setThumbnail(icon)
-                    .setAuthor('Cubic | Lyrics', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                    .setAuthor('Cubic | Lyrics', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
                     .setTitle(title + ' - ' + author)
         
                     message.channel.send(embed)
@@ -28,7 +28,7 @@ module.exports = {
                     let embed = new discord.MessageEmbed()
                     .setColor('#007dff')
                     .setThumbnail(icon)
-                    .setAuthor('Cubic | Lyrics', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                    .setAuthor('Cubic | Lyrics', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
                     .setTitle(title + ' - ' + author)
                     .setDescription(song)
         

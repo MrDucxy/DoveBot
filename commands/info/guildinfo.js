@@ -12,7 +12,7 @@ module.exports = {
         .setColor('#007dff')
         .setTitle(message.guild.name)
         .setThumbnail(message.guild.iconURL())
-        .setAuthor('Cubic | Guild Info', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+        .setAuthor('Cubic | Guild Info', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
         .addField('Server Info',
          `**Name: **${message.guild.name}
          **ID: **${message.guild.id}

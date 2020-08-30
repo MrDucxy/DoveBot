@@ -87,7 +87,7 @@ module.exports = {
                             .setThumbnail(song.thumbnail)
                             .addField('Duration', song.duration)
                             .setURL(song.url)
-                            .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                            .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
                             
                             message.channel.send(embed)
                         } catch (error) {
@@ -103,7 +103,7 @@ module.exports = {
                         .addField('Duration', song.duration)
                         .setThumbnail(song.thumbnail)
                         .setURL(song.url)
-                        .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                        .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
                         
                         message.channel.send(embed)
                     }
@@ -159,7 +159,7 @@ module.exports = {
                     .setDescription('Currently Playing Song')
                     .setThumbnail(serverQueue.songs[0].thumbnail)
                     .setURL(serverQueue.songs[0].url)
-                    .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                    .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
 
                     message.channel.send(embed)
 
@@ -175,8 +175,8 @@ module.exports = {
                         .setColor('#007dff')
                         .setTitle('Server Queue')
                         .setDescription(songMap.substring(0, 2000) + '\r**List too long for embed...**')
-                        .setThumbnail('https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
-                        .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                        .setThumbnail('https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                        .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
     
                         message.channel.send(embed1)
                     } else {
@@ -184,8 +184,8 @@ module.exports = {
                         .setColor('#007dff')
                         .setTitle('Server Queue')
                         .setDescription(songMap)
-                        .setThumbnail('https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
-                        .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                        .setThumbnail('https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                        .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
     
                         message.channel.send(embed1)
                     }

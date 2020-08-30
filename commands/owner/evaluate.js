@@ -29,7 +29,7 @@ module.exports = {
     
             let embed = new discord.MessageEmbed()
                 .setColor("#007dff")
-                .setAuthor('Cubic | Evaluate', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                .setAuthor('Cubic | Evaluate', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
                 .setTitle("Evaluation")
                 .addField("Evaluation Request:", `\`\`\`js\n${beautify(args.join(" "), { format: "js"})}\n\`\`\``)
                 .addField("Result:", `\`\`\`js\n${evaluated}\n\`\`\``)
@@ -39,6 +39,7 @@ module.exports = {
         } catch (e) {
     
             let embed = new discord.MessageEmbed()
+                .setAuthor('Cubic | Evaluate', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
                 .setColor("RED")
                 .setTitle("Evaluation Error")
                 .setDescription(e)

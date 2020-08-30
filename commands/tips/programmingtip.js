@@ -15,8 +15,8 @@ module.exports = {
 
         let embed = new discord.MessageEmbed()
         .setColor('#007dff')
-        .setThumbnail('https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
-        .setAuthor('Cubic | Tips', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+        .setThumbnail('https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+        .setAuthor('Cubic | Tips', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
         .addField('Programming Tip', replies[result])
 
         message.reply(embed);

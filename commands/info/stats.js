@@ -19,8 +19,8 @@ module.exports = {
 
                 let embed = new discord.MessageEmbed()
                 .setColor('#007dff')
-                .setThumbnail('https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
-                .setAuthor('Cubic | Bot Stats', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+                .setThumbnail('https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                .setAuthor('Cubic | Bot Stats', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
                 .addField('Stats',
                  `**Creator: **<@297195707159281665>
                  **Name: **${bot.user.username}

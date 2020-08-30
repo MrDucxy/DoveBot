@@ -34,7 +34,7 @@ module.exports = {
             .addField('Kicked Time', message.createdAt)
             .addField('Kicked In', message.channel)
             .addField('Reason', reason)
-            .setAuthor('Cubic | Moderation', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
+            .setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
     
         message.channel.send(`<@${target.id}> has been kicked for: **${reason}**`);
         target.kick();
