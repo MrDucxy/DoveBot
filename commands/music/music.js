@@ -53,6 +53,7 @@ module.exports = {
                         message.channel.send('An error has occurred!')
                     }
                     
+                    if(video.minutes > 120) return message.channel.send('You cannot play a song longer than 1 Hour, 30 Minutes')
     
                     const song = {
                         title: video.title,
