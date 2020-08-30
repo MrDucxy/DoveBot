@@ -131,7 +131,7 @@ module.exports = {
                         return message.channel.send('You must have DJ to forceskip.')
                     }
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
-                    serverQueue.connection.dispatcher.next()
+                    serverQueue.connection.dispatcher.end()
                     message.channel.send('Force skipped the current song!')
                 break;
     
