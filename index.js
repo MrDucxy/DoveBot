@@ -52,8 +52,8 @@ bot.categories = fs.readdirSync("./commands/");
 bot.on('message', (message) =>{
 	antiSpam.message(message);
 	
-	var permissions = permissionsFor(message.member)
-    if(!permissions.has('ADMINISTRATOR') && !message.author.bot){
+	permissionsFor(message.client.user)
+    if(!message.member.hasPermission('ADMINISTRATOR') || !message.author.bot){
         let confirm = false;
    
         var i;
