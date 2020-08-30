@@ -245,6 +245,7 @@ module.exports = {
             }
             
         } catch (error) {
+            console.log(error)
             return message.channel.send('An error has occurred!')
         }
 
