@@ -84,7 +84,7 @@ module.exports = {
                             .setTitle(song.title)
                             .setDescription('Now Playing!')
                             .setThumbnail(song.thumbnail)
-                            .addField('Duration', duration)
+                            .addField('Duration', song.duration)
                             .setURL(song.url)
                             .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
                             
@@ -99,7 +99,7 @@ module.exports = {
                         .setColor('#007dff')
                         .setTitle(song.title)
                         .setDescription('Song added to queue!')
-                        .addField('Duration', duration)
+                        .addField('Duration', song.duration)
                         .setThumbnail(song.thumbnail)
                         .setURL(song.url)
                         .setAuthor('Cubic | Music', 'https://cdn.discordapp.com/avatars/717580928683212882/4e4a8cb8c44b31a1634d446569f8ad73.png')
