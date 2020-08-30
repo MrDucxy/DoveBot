@@ -58,7 +58,7 @@ module.exports = {
                         title: video.title,
                         url: video.shortUrl,
                         thumbnail: video.thumbnails.default.url,
-                        duration: video.duration
+                        duration: `${video.minutes} Minutes, ${video.seconds} Seconds`
                     }
     
                     if(!serverQueue){
