@@ -122,7 +122,7 @@ module.exports = {
     
     
     
-                case 'forceskip':
+                case 'forceskip', 'fs':
                     if (!DJ) {
                         return message.channel.send('You must have DJ to forceskip.')
                     }
