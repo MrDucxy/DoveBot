@@ -31,7 +31,7 @@ module.exports = {
 
             switch(args[0]){
 
-                case 'play', 'p':
+                case 'play':
 
                     const url = args[1] ? args[1].replace(/<(._)>/g, '$1') : ''
                     const searchString = args.slice(1).join(' ')
@@ -114,7 +114,7 @@ module.exports = {
     
     
     
-                case 'stop', 'disconnect':
+                case 'stop':
                     if (!DJ) {
                         return message.channel.send('You must have DJ to stop the queue.')
                     }
@@ -126,7 +126,7 @@ module.exports = {
     
     
     
-                case 'forceskip', 'fs':
+                case 'fs':
                     if (!DJ) {
                         return message.channel.send('You must have DJ to forceskip.')
                     }
@@ -137,7 +137,7 @@ module.exports = {
     
     
     
-                case 'volume', 'vol':
+                case 'vol':
                     if (!DJ && args[1]) {
                         return message.channel.send('You must have DJ to adjust volume.')
                     }
@@ -150,7 +150,7 @@ module.exports = {
                     message.channel.send(`The volume is now set to: **${args[1]}**`)
                 break;
 
-                case 'np', 'nowplaying':
+                case 'np':
 
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
                     let embed = new discord.MessageEmbed()
@@ -165,7 +165,7 @@ module.exports = {
 
                 break;
     
-                case 'queue', 'q':
+                case 'q':
 
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
                     let songMap = serverQueue.songs.map(song => `**--> ** ${song.title}`).join('\n')
@@ -203,7 +203,7 @@ module.exports = {
 
                 break;
 
-                case 'resume', 'continue':
+                case 'resume':
                     if (!DJ && args[1]) {
                         return message.channel.send('You must have DJ to pause a song.')
                     }
@@ -216,7 +216,7 @@ $
                 break;
 
 
-                case 'loop', 'repeat':
+                case 'loop':
 
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
                     serverQueue.loop = !serverQueue.loop
