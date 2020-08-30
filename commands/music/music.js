@@ -1,7 +1,6 @@
 const discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const opus = require('opusscript');
-const { connect } = require('superagent');
 const { YouTube } = require('popyt')
 const youtube = new YouTube('AIzaSyD7CoeqcMFRIHVnq2C2tomXm1BZ05gXGEc')
 

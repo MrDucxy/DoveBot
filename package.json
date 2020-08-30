@@ -1,8 +1,8 @@
 {
-  "name": "cubic",
-  "version": "1.0.0",
-  "description": "Cubic is a all-in-one Discord bot.",
-  "main": "bot.js",
+  "name": "cubic_cleaned",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,13 +17,9 @@
     "figlet": "^1.5.0",
     "node-spotify-api": "^1.1.1",
     "opusscript": "0.0.7",
-    "paiza-io": "^0.2.3",
-    "ping-lite": "^2.0.2",
     "popyt": "^4.1.1",
-    "random-puppy": "^1.1.0",
     "solenolyrics": "^5.0.0",
-    "superagent": "^6.0.0",
-    "trev": "^1.0.13",
+    "trev": "^2.0.8",
     "urban": "^0.3.2",
     "ytdl-core": "^3.2.2"
   }
