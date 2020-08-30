@@ -217,7 +217,7 @@ module.exports = {
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
                     serverQueue.loop = !serverQueue.loop
 
-                    return message.channel.send(`Loop ${serverQueue.loop ? '**Enabled 🔁**' : '**Disabled**!'}`)
+                    message.channel.send(`Loop ${serverQueue.loop ? '**Enabled 🔁**' : '**Disabled**!'}`)
 
                 break;
             }
