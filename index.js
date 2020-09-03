@@ -55,7 +55,7 @@ bot.on('message', async (message) =>{
 	if(badLinks.some(link => message.content.toLowerCase().includes(link))){
 
 		message.delete()
-		message.channel.send('Possible IP Logger Detected!')
+		message.channel.send('Possible IP Logger/Shortner Detected!')
 		try {
 			//Find the logs channel
 		var logChannel = message.guild.channels.cache.find(channel => channel.name.toLowerCase() === "logs")
@@ -75,7 +75,7 @@ bot.on('message', async (message) =>{
 		.setColor('#007dff')
 		.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
 		.setThumbnail(message.author.avatarURL())
-		.setTitle(`Possible IP Logger Deleted: ${message.author.tag}`)
+		.setTitle(`Possible IP Logger/Shortner Deleted: ${message.author.tag}`)
 		.addField('Message', message.content.substr(0,500) + (message.content.length > 500 ? "..." : ""))
 		.addField('Channel', `<#${message.channel.id}>`)
 		logChannel.send(embed)
@@ -218,7 +218,7 @@ bot.on("messageUpdate", async (oldMsg, newMsg) => {
 		if(badLinks.some(link => newMsg.content.toLowerCase().includes(link))){
 
 		oldMsg.delete()
-		oldMsg.channel.send('Possible IP Logger Detected!')
+		oldMsg.channel.send('Possible IP Logger/Shortner Detected!')
 		try {
 			//Find the logs channel
 		var logChannel = oldMsg.guild.channels.cache.find(channel => channel.name.toLowerCase() === "logs")
@@ -238,7 +238,7 @@ bot.on("messageUpdate", async (oldMsg, newMsg) => {
 		.setColor('#007dff')
 		.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
 		.setThumbnail(newMsg.author.avatarURL())
-		.setTitle(`Possible IP Logger Deleted: ${newMsg.author.tag}`)
+		.setTitle(`Possible IP Logger/Shortner Deleted: ${newMsg.author.tag}`)
 		.addField('Message', newMsg.content.substr(0,500) + (newMsg.content.length > 500 ? "..." : ""))
 		.addField('Channel', `<#${newMsg.channel.id}>`)
 		logChannel.send(embed)
