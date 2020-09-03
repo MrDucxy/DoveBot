@@ -214,6 +214,43 @@ bot.on("messageDelete", async msg => {
 
 
 bot.on("messageUpdate", async (oldMsg, newMsg) => {
+
+		if(badLinks.some(link => newMsg.content.toLowerCase().includes(link))){
+
+		oldMsg.delete()
+		oldMsg.channel.send('Possible IP Logger Detected!')
+		try {
+			//Find the logs channel
+		var logChannel = oldMsg.guild.channels.cache.find(channel => channel.name.toLowerCase() === "logs")
+	
+	//Create it if it doesn't exist
+		if(!logChannel){
+		logChannel = await oldMsg.guild.channels.create("logs", {
+			type: "text",
+			nsfw: true,
+			reason: "Cubic attempted to log something, but the logs channel did not exist."
+		})
+	}
+	//Exit if the bot could not find or create the logs channel(E.g lacks permission)
+		if(!logChannel) return;
+	
+		let embed = new Discord.MessageEmbed()
+		.setColor('#007dff')
+		.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+		.setThumbnail(newMsg.author.avatarURL())
+		.setTitle(`Possible IP Logger Deleted: ${newMsg.author.tag}`)
+		.addField('Message', newMsg.content.substr(0,500) + (newMsg.content.length > 500 ? "..." : ""))
+		.addField('Channel', `<#${newMsg.channel.id}>`)
+		logChannel.send(embed)
+
+		return;
+
+	} catch (error) {
+		var logChannel = oldMsg.guild.channels.cache.find(channel => channel.name.toLowerCase() === "logs")
+		logChannel.send('Error!')
+	}}
+
+
     try {
         	//Don't handle messages from bots
 	if (oldMsg.author.bot) return
