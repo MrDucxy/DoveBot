@@ -2,8 +2,8 @@ const botconfig = require('./botconfig.json');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
-const { badwords } = require("./badwords.json") 
 const blacklistUsers = require("./blacklist.json") 
+const badLinks = require("./badLinks.json") 
 
 
 global.__basedir = __dirname;
@@ -49,8 +49,48 @@ bot.categories = fs.readdirSync("./commands/");
 
 // Message Event
     
-bot.on('message', (message) =>{
+bot.on('message', async (message) =>{
 	antiSpam.message(message);
+
+	if(badLinks.some(link => message.content.toLowerCase().includes(link))){
+
+		message.delete()
+		message.channel.send('Possible IP Logger Detected!')
+		try {
+			//Find the logs channel
+		var logChannel = message.guild.channels.cache.find(channel => channel.name.toLowerCase() === "logs")
+	
+	//Create it if it doesn't exist
+		if(!logChannel){
+		logChannel = await message.guild.channels.create("logs", {
+			type: "text",
+			nsfw: true,
+			reason: "Cubic attempted to log something, but the logs channel did not exist."
+		})
+	}
+	//Exit if the bot could not find or create the logs channel(E.g lacks permission)
+		if(!logChannel) return;
+	
+		let embed = new Discord.MessageEmbed()
+		.setColor('#007dff')
+		.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+		.setThumbnail(message.author.avatarURL())
+		.setTitle(`Possible IP Logger Deleted: ${message.author.tag}`)
+		.addField('Message', message.content.substr(0,500) + (message.content.length > 500 ? "..." : ""))
+		.addField('Channel', `<#${message.channel.id}>`)
+		logChannel.send(embed)
+	
+	
+		
+	} catch (error) {
+		var logChannel = message.guild.channels.cache.find(channel => channel.name.toLowerCase() === "logs")
+		logChannel.send('Error!')
+	}
+		return;
+
+	}
+
+
 
     if(message.author.bot) return;
     if(!message.guild) return;
@@ -111,6 +151,8 @@ bot.on('message', (message) =>{
 
 
 bot.on("messageDelete", async msg => {
+
+	if(badLinks.some(link => msg.content.toLowerCase().includes(link))) return;
 
     try {
         	//Find the logs channel
