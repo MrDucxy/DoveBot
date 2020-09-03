@@ -11,6 +11,7 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "beautify": "0.0.8",
+    "canvas": "^2.6.1",
     "common-tags": "^1.8.0",
     "discord-anti-spam": "^2.4.1",
     "discord.js": "^12.3.1",
@@ -19,6 +20,7 @@
     "opusscript": "0.0.7",
     "popyt": "^4.1.1",
     "solenolyrics": "^5.0.0",
+    "text-to-image": "^2.3.0",
     "trev": "^2.0.8",
     "urban": "^0.3.2",
     "ytdl-core": "^3.2.2"

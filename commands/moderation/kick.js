@@ -4,7 +4,7 @@ module.exports = {
         name: "kick",
         category: "Moderation",
         description: "Kicks a user",
-        usage: "$kick <mention>",
+        usage: "$kick <mention> <reason>",
     run: async (bot, message, args) => {
 
         let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
@@ -14,7 +14,7 @@ module.exports = {
         if(!message.member.hasPermission('KICK_MEMBERS')) return message.reply('You do not have permission to do that!');
     
         if(!target) return message.reply('You did not mention anybody!');
-        if(target.hasPermission('KICK_MEMBERS')) return message.reply('You cannot kick another moderator!');
+        if(target.hasPermission('MANAGE_MESSAGES')) return message.reply('You cannot mute another moderator!');
         if(!reason) return message.reply('Please specify a reason to kick this member!');
         if(!findLogs){
             try {
