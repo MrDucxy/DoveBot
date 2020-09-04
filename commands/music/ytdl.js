@@ -18,13 +18,13 @@ module.exports = {
 
 
         try {
-                    const url = args[1] ? args[0].replace(/<(._)>/g, '$1') : ''
+                    const url = args[0] ? args[0].replace(/<(._)>/g, '$1') : ''
                     const searchString = args.join(' ')
 
                     var video;
 
                     try {
-                        if(args[1].includes('https://youtube.com/watch', 'https://www.youtube.com/watch')){
+                        if(args[0].includes('https://youtube.com/watch', 'https://www.youtube.com/watch', "https://youtu.be")){
                             var video = await youtube.getVideo(url)
                         } else{
                             try {
