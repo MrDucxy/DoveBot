@@ -38,7 +38,7 @@ module.exports = {
                     var video;
 
                     try {
-                        if(args[1].includes('https://youtube.com/watch', 'https://www.youtube.com/watch')){
+                        if(args[1].includes('https://youtube.com/watch', 'https://www.youtube.com/watch', 'https://youtu.be')){
                             var video = await youtube.getVideo(url)
                         } else{
                             try {
