@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ascii-table": "0.0.9",
+    "babel-polyfill": "^6.26.0",
     "beautify": "0.0.8",
     "canvas": "^2.6.1",
     "common-tags": "^1.8.0",
