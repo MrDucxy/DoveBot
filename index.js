@@ -111,34 +111,6 @@ bot.on('message', async (message) =>{
     if(command){
 		command.run(bot, message, args, blacklistUsers, botconfig)
 	}
-		if(!message.member.permissions.has('ADMINISTRATOR') || !message.author.bot){
-			let confirm = false;
-	   
-			var i;
-			for(i = 0;i < badwords.length; i++) {
-			  
-			  if(message.content.toLowerCase().includes(badwords[i].toLowerCase()))
-				confirm = true;
-			  
-			}
-	
-			if(confirm){
-				let target = message.member;
-				let logs = message.guild.channels.cache.find(channel => channel.name === botconfig.logsChannel);
-				let embed = new Discord.MessageEmbed()
-				.setColor('BLACK')
-				.setThumbnail(target.avatarURL)
-				.addField('Banned Member', `<@${target.id}> (${target.id})`)
-				.addField('Banned Time', message.createdAt)
-				.addField('Banned In', message.channel)
-				.addField('Ban Reason', 'Racism/Bad Words')
-		
-			message.delete();
-			message.channel.send(`<@${target.id}> has been banned for racism/bad words.`);
-			message.guild.members.ban(target);
-			logs.send(embed);
-			}
-		}
 
 });
 

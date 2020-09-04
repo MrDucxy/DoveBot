@@ -31,8 +31,8 @@ module.exports = {
                 .setColor("#007dff")
                 .setAuthor('Cubic | Evaluate', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
                 .setTitle("Evaluation")
-                .addField("Evaluation Request:", `\`\`\`js\n${beautify(args.join(" "), { format: "js"})}\n\`\`\``)
-                .addField("Result:", `\`\`\`js\n${evaluated}\n\`\`\``)
+                .addField("Input:", `\`\`\`js\n${beautify(args.join(" "), { format: "js"})}\n\`\`\``)
+                .addField("Output:", `\`\`\`js\n${evaluated}\n\`\`\``)
                 .addField("Type:", typeof(evaluated));
     
             message.channel.send(embed);
