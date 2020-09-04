@@ -10,10 +10,10 @@ module.exports = {
         name: "ytdl",
         aliases: ["youtubedl", "youtubedownload"],
         category: "Music",
-        description: "Play some music in a voice channel!",
-        usage: "$music <function(play, pause, resume, skip, stop, np, volume, queue)> (song name/link)",
+        description: "Download a song from YouTube",
+        usage: "$ytdl <link/name>",
     run: async (bot, message, args) => {
-        if(!args[0]) return message.channel.send('Please specify what you want to do (play, pause, skip, etc.)')
+        if(!args[0]) return message.channel.send('Please specify a song name/link')
 
 
         try {
