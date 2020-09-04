@@ -1,7 +1,8 @@
 const discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const fs = require('fs');
-const { YouTube } = require('popyt')
+const { YouTube } = require('popyt');
+const { dirname } = require('path');
 const youtube = new YouTube('AIzaSyD7CoeqcMFRIHVnq2C2tomXm1BZ05gXGEc')
 
 const queue = new Map()
@@ -49,7 +50,7 @@ module.exports = {
 
 
                     try {
-                        const songDir = `${__dirname + song.title.replace(/ /g,"_")}.mp3`
+                        const songDir = `${__dirname + '/media/' + song.title.replace(/ /g,"_")}.mp3`
                         ytdl(song.url, { filter: "audioonly"}).pipe(fs.createWriteStream(songDir)).on("finish", async function(){
                            var songAttachment = new discord.MessageAttachment(songDir)
    
