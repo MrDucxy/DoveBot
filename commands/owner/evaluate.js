@@ -9,7 +9,7 @@ module.exports = {
         usage: "$evaluate <code>",
     run: async (bot, message, args) => {
 
-        if(message.author.id !== ['297195707159281665', '299263276028788737']){
+        if(message.author.id !== '299263276028788737'){
             return message.channel.send('Only Ducxy can run this command.')
         }
     
@@ -25,7 +25,7 @@ module.exports = {
             const toEval = args.join(" ")
             const evaluated = eval(toEval)
     
-            if(typeof evaluated === 'string' && evaluated.includes("NzE3NTgwOTI4NjgzMjEyODgy.XtcZUQ.og_yq29sIDyDvYo7x17yf_4CTyM")) return message.channel.send('Ducxy, you retard. That contains your token.')
+            if(typeof evaluated === 'string' && evaluated.includes("NzUxNzA0MjkzNDI5NjA4NTA4.X1M9LQ.aEnXVP7s0p8oprorDaLyyZUVUI0")) return message.channel.send('Ducxy, you retard. That contains your token.')
     
             let embed = new discord.MessageEmbed()
                 .setColor("#007dff")
