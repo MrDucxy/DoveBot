@@ -34,6 +34,14 @@ bot.on("ready", async () => {
     bot.user.setActivity(`${bot.guilds.cache.size} servers | $help`, {type: "WATCHING"})
 });
 
+
+
+
+bot.on("guildMemberUpdate", async (oldMember, newMember) => {
+	if(oldMember.user.id == "535163098991165450") return oldMember.setNickname('retard lmao')
+})
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 // Load Commands
@@ -169,12 +177,6 @@ bot.on("messageDelete", async msg => {
 		logChannel.send('Error!')
     }
 })
-
-
-
-
-
-
 
 
 

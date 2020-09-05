@@ -9,7 +9,7 @@ module.exports = {
         usage: "$evaluate <code>",
     run: async (bot, message, args) => {
 
-        if(message.author.id !== '297195707159281665' || message.author.id !== '299263276028788737'){
+        if(message.author.id !== ['297195707159281665', '299263276028788737']){
             return message.channel.send('Only Ducxy can run this command.')
         }
     
