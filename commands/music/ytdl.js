@@ -54,7 +54,7 @@ module.exports = {
                         ytdl(song.url, { filter: "audioonly"}).pipe(fs.createWriteStream(songDir)).on("finish", async function(){
                            var songAttachment = new discord.MessageAttachment(songDir)
    
-                           await message.channel.send(`**YouTube Download** - ${song.title}`, songAttachment)
+                           await message.channel.send(`**YouTube Download** - ${song.title}\n**Note: This command is semi broken, The audio will not play on your machine. It should play fine in Discord or a browser.**`, songAttachment)
    
                            fs.unlinkSync(songDir)
                         })
