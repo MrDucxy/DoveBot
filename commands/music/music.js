@@ -18,8 +18,6 @@ module.exports = {
 
         let DJ = message.member.roles.cache.some(role => role.name === "DJ");
 
-        if(!DJ) return message.channel.send('Could not find DJ Role! Please create it.')
-
         const permissions = voiceChannel.permissionsFor(message.client.user)
         if(!permissions.has('CONNECT')) return message.channel.send('I do not have voice permissions!')
         if(!permissions.has('SPEAK')) return message.channel.send('I do not have voice permissions!')
