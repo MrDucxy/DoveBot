@@ -19,7 +19,7 @@ module.exports = {
              `**Name: **${message.guild.name}
              **ID: **${message.guild.id}
              **Members: **${message.guild.memberCount}
-             **Owner: **${message.guild.owner.user.username}
+             **Owner: **${message.guild.owner.user.tag}
              **Created: **${message.guild.createdAt}`)
     
             message.reply(embed);
