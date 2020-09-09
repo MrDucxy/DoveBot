@@ -15,7 +15,8 @@ module.exports = {
         if(target.hasPermission('MANAGE_MESSAGES')) return message.reply('You cannot mute another moderator!');
         if(!reason) return message.reply('Please specify a reason to mute this member!');
 
-        let role = message.guild.roles.cache.find(role => role.name === 'warned');
+        let roleName = 'warned'
+        let role = message.guild.roles.cache.find(role => role.name.toLowerCase() === roleName.toLowerCase());
 
         if(!role){
             try {
