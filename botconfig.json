@@ -1,6 +1,6 @@
 {
     "token": "NzUxNzA0MjkzNDI5NjA4NTA4.X1M9LQ.aEnXVP7s0p8oprorDaLyyZUVUI0",
-    "prefix": "./",
+    "prefix": "$",
     "logsChannel": "logs",
     "reportsChannel": "reports"
 }
