@@ -10,7 +10,7 @@ global.__basedir = __dirname;
 
 const AntiSpam = require('discord-anti-spam');
 const antiSpam = new AntiSpam({
-    warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
+    warnThreshold: 5, // Amount of messages sent in a row that will cause a warning.
     kickThreshold: 10, // Amount of messages sent in a row that will cause a ban.
     banThreshold: 15, // Amount of messages sent in a row that will cause a ban.
     maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
