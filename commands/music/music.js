@@ -16,7 +16,8 @@ module.exports = {
         const voiceChannel = message.member.voice.channel;
         if(!voiceChannel) return message.channel.send('You must be in a voice channel to use this command!')
 
-        let DJ = message.member.roles.cache.some(role => role.name === 'DJ');
+        let DJName = 'DJ'
+        let DJ = message.member.roles.cache.some(role => role.name.toLowercase() === DJName.toLowercase());
 
         const permissions = voiceChannel.permissionsFor(message.client.user)
         if(!permissions.has('CONNECT')) return message.channel.send('I do not have voice permissions!')
