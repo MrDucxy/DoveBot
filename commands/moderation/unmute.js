@@ -9,7 +9,10 @@ module.exports = {
 
         let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         
-        if(!message.member.hasPermission('MUTE_MEMBERS')) return message.reply('You cannot unmute members.')
+        let hasRoleName = 'mini-mod'
+        let hasRole = message.member.roles.cache.some(role => role.name.toLowerCase() === hasRoleName.toLowerCase());
+
+        if(!hasRole) return message.reply('You cannot unmute members.');
         if(!target) return message.reply('You did not mention anybody!');
 
         let roleName = 'muted'

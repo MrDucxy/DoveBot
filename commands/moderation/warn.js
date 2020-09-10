@@ -10,7 +10,10 @@ module.exports = {
         let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         let reason = args.slice(1).join(' ');
         
-        if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You cannot warn members.')
+        let hasRoleName = 'mini-mod'
+        let hasRole = message.member.roles.cache.some(role => role.name.toLowerCase() === hasRoleName.toLowerCase());
+
+        if(!hasRole) return message.reply('You cannot warn members.');
         if(!target) return message.reply('You did not mention anybody!');
         if(target.hasPermission('MANAGE_MESSAGES')) return message.reply('You cannot mute another moderator!');
         if(!reason) return message.reply('Please specify a reason to mute this member!');
