@@ -11,7 +11,9 @@ module.exports = {
         let reason = args.slice(1).join(' ');
         let findlogs = message.guild.channels.cache.find(channel => channel.name === 'logs');
     
-        if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('You do not have permission to do that!');
+        if(!message.member.hasPermission('BAN_MEMBERS')){
+            return message.reply('You cannot ban members.')
+        }
     
         if(!target) return message.reply('You did not mention anybody!');
         if(target.hasPermission('MANAGE_MESSAGES')) return message.reply('You cannot mute another moderator!');
