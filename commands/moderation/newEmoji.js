@@ -2,10 +2,10 @@ const discord = require('discord.js');
 
 module.exports = {
         name: "newemoji",
-        aliases: 'addemoji',
+        aliases: "addemoji",
         category: "Moderation",
         description: "Add emoji to the guild.",
-        usage: "$kick <mention>",
+        usage: "$newemoji <url> <name>",
     run: async (bot, message, args) => {
     
         if(!message.member.hasPermission('MANAGE_EMOJIS')) return message.reply('You do not have permission to do that!');

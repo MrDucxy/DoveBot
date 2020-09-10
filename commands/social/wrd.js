@@ -25,9 +25,7 @@ module.exports = {
                 const wrdUSERNAME = $('.username').html()
                 const wrdALIAS = $('.alias').html()
                 const wrdBIO = $('.biography').html()
-
-                if(wrdUSERNAME && wrdALIAS === null) return message.channel.send('Could not find info on that user!')
-
+                const wrdISMOD = html.includes('https://cdn.wearedevs.net/images/badges/Moderator.png')
 
                 let embed = new discord.MessageEmbed()
                 .setColor('#007dff')
@@ -39,7 +37,8 @@ module.exports = {
                     {name: 'Username', value: wrdUSERNAME, inline: true},
                     {name: 'Alias', value: wrdALIAS, inline: true},
                     {name: 'UID', value: args[0], inline: true},
-                    {name: 'Biography', value: wrdBIO}
+                    {name: 'Biography', value: wrdBIO},
+                    {name: 'Moderator?', value: wrdISMOD ? "Yes":"No"}
                 )
 
                 .setFooter(`Note: This command is in beta, More information will be added later.`)
