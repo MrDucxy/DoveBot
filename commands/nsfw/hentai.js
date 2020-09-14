@@ -17,7 +17,7 @@ module.exports = {
           .setTitle('Have some nice hentai!')
           .setDescription(hentai.title)
           .setImage(hentai.media)
-          .setColor('#007dff')
+          .setColor('#000000')
           .setFooter(`From: ${hentai.subreddit} | Powered By: Trev`)
           message.channel.send(embed);
         } catch (error) {

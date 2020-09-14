@@ -17,18 +17,18 @@ module.exports = {
         try {
                 if(song.length > 1500){
                     let embed = new discord.MessageEmbed()
-                    .setColor('#007dff')
+                    .setColor('#000000')
                     .setDescription(song.substring(0, 1500) + '-\r**...**')
                     .setThumbnail(icon)
-                    .setAuthor('Cubic | Lyrics', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                    .setAuthor('Dove | Lyrics', bot.user.avatarURL())
                     .setTitle(title + ' - ' + author)
         
                     message.channel.send(embed)
                 } else{
                     let embed = new discord.MessageEmbed()
-                    .setColor('#007dff')
+                    .setColor('#000000')
                     .setThumbnail(icon)
-                    .setAuthor('Cubic | Lyrics', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                    .setAuthor('Dove | Lyrics', bot.user.avatarURL())
                     .setTitle(title + ' - ' + author)
                     .setDescription(song)
         

@@ -11,8 +11,8 @@ module.exports = {
         if(!args[0])return message.channel.send('Please specify some text!');
     
         const embed = new discord.MessageEmbed()
-        .setColor('#007dff')
-        .setAuthor('Cubic | User Embed', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+        .setColor('#000000')
+        .setAuthor('Dove | User Embed', bot.user.avatarURL())
         .setThumbnail(message.author.avatarURL())
         .setTitle(`Embed From: ${message.author.username}`)
         .setDescription(args.join(" "))

@@ -11,7 +11,7 @@ module.exports = {
 
         message.channel.send('Pinging...').then(msg => {
             let embed = new discord.MessageEmbed()
-            .setColor('#007dff')
+            .setColor('#000000')
             .setTitle('Pong!')
             
             .addFields(
@@ -19,7 +19,7 @@ module.exports = {
                 {name: 'Response Latency', value: Math.round(msg.createdTimestamp - message.createdTimestamp)+'ms', inline: true}
             )
 
-            .setAuthor('Cubic | Ping', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+            .setAuthor('Dove | Ping', bot.user.avatarURL())
     
             msg.edit(embed);
         })

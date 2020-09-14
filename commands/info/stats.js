@@ -18,11 +18,11 @@ module.exports = {
         let uptime = `${days}d, ${hours}h, ${minutes}m, ${seconds}s`;
 
                 let embed = new discord.MessageEmbed()
-                .setColor('#007dff')
-                .setThumbnail('https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
-                .setAuthor('Cubic | Bot Stats', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                .setColor('#000000')
+                .setThumbnail(bot.user.avatarURL())
+                .setAuthor('Dove | Bot Stats', bot.user.avatarURL())
                 .addField('Stats',
-                 `**Creator: **<@297195707159281665>
+                 `**Creator: **<@299263276028788737>
                  **Name: **${bot.user.username}
                  **Servers: **${bot.guilds.cache.size}
                  **Uptime: **${uptime}

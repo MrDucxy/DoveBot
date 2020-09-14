@@ -10,18 +10,36 @@ module.exports = {
         usage: "$youtube <video name>",
     run: async (bot, message, args) => {
 
-        if(!args[0]) return message.channel.send('Please enter a song name!')
+        if(!args[0]) return message.channel.send('Please enter a song name/URL!')
+
+        const url = args[0] ? args[0].replace(/<(._)>/g, '$1') : ''
+        const searchString = args.slice(0).join(' ')
+
+        var video;
+        try {
+            if(args[1].includes('https://youtube.com/watch', 'https://www.youtube.com/watch', 'https://youtu.be')){
+                var video = await youtube.getVideo(url)
+            } else{
+                try {
+                    var video = await youtube.getVideo(searchString, 1)
+                } catch (error) {
+                    console.log(error)
+                    return message.channel.send('I could not find any search results!')
+                }
+            }
+            
+        } catch (error) {
+            message.channel.send('An error has occurred!')
+        }
 
         try {
-            const video = await youtube.getVideo(args.join(' '), 1)
-            if(!video) return message.channel.send('Could not find a YouTube video with that name.')
 
           let embed = new discord.MessageEmbed()
-          .setColor('#007dff')
+          .setColor('#000000')
           .setThumbnail(video.thumbnails.default.url)
           .setTitle(video.title)
           .setURL(video.shortUrl)
-          .setAuthor('Cubic | YouTube', 'https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/youtube-512.png')
+          .setAuthor('Dove | YouTube', 'https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/youtube-512.png')
           .addField('Video Information',
            `**Length: ** ${video.minutes} Minutes, ${video.seconds} Seconds
            **Comments: **${video.commentCount}

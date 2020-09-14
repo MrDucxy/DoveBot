@@ -22,11 +22,11 @@ module.exports = {
                 let track = data.tracks.items[0];
                 console.log(song)
                 let embed = new discord.MessageEmbed()
-                .setColor('#007dff')
+                .setColor('#000000')
                 .setTitle(track.artists[0].name + ' - ' + track.name)
                 .setThumbnail(track.album.images[0].url)
                 .setURL(track.external_urls.spotify)
-                .setAuthor('Cubic | Spotify', 'https://www.magneticmag.com/.image/t_share/MTY1MTczMzk2MzUzNTkwNTg0/spotify_icon_cmyk_green.png')
+                .setAuthor('Dove | Spotify', bot.user.avatarURL())
                 .addField('Song Information',
            `**Album: ** ${track.album.name}
            **Album Release Date: ** ${track.album.release_date}

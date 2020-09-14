@@ -19,9 +19,9 @@ module.exports = {
           .setTitle(`Subreddit: ${image.subreddit}`)
           .setURL(image.permalink)
           .setDescription(image.title)
-          .setAuthor('Cubic | Reddit', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+          .setAuthor('Dove | Reddit', bot.user.avatarURL())
           .setImage(image.media)
-          .setColor('#007dff')
+          .setColor('#000000')
           .setFooter(`Powered By: Trev`)
           message.channel.send(embed);
         } catch (error) {
@@ -36,9 +36,9 @@ module.exports = {
             .setTitle(`From: ${image.subreddit}`)
             .setURL(image.permalink)
             .setDescription(image.title)
-            .setAuthor('Cubic | Reddit', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+            .setAuthor('Dove | Reddit', bot.user.avatarURL())
             .setImage(image.media)
-            .setColor('#007dff')
+            .setColor('#000000')
             .setFooter(`Powered By: Trev`)
             message.channel.send(embed);
           } catch (error) {

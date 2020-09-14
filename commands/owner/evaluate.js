@@ -28,8 +28,8 @@ module.exports = {
             if(typeof evaluated === 'string' && evaluated.includes("NzUxNzA0MjkzNDI5NjA4NTA4.X1M9LQ.aEnXVP7s0p8oprorDaLyyZUVUI0")) return message.channel.send('Ducxy, you retard. That contains your token.')
     
             let embed = new discord.MessageEmbed()
-                .setColor("#007dff")
-                .setAuthor('Cubic | Evaluate', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                .setColor("#000000")
+                .setAuthor('Dove | Evaluate', bot.user.avatarURL())
                 .setTitle("Evaluation")
                 .addField("Input:", `\`\`\`js\n${beautify(args.join(" "), { format: "js"})}\n\`\`\``)
                 .addField("Output:", `\`\`\`js\n${evaluated}\n\`\`\``)
@@ -39,7 +39,7 @@ module.exports = {
         } catch (e) {
     
             let embed = new discord.MessageEmbed()
-                .setAuthor('Cubic | Evaluate', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                .setAuthor('Dove | Evaluate', bot.user.avatarURL())
                 .setColor("RED")
                 .setTitle("Evaluation Error")
                 .setDescription(e)

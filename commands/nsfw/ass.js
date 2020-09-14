@@ -17,7 +17,7 @@ module.exports = {
           .setTitle('Have some round ass!')
           .setDescription(ass.title)
           .setImage(ass.media)
-          .setColor('#007dff')
+          .setColor('#000000')
           .setFooter(`From: ${ass.subreddit} | Powered By: Trev`)
           message.channel.send(embed);
         } catch (error) {

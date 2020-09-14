@@ -30,14 +30,14 @@ module.exports = {
     
     
         let embed = new discord.MessageEmbed()
-            .setColor('#007dff')
+            .setColor('#000000')
             .setThumbnail(target.user.avatarURL())
             .addField('Banned Member', `<@${target.id}> (${target.user.id})`)
             .addField('Banned By', `<@${message.author.id}> (${message.author.id})`)
             .addField('Banned Time', message.createdAt)
             .addField('Banned In', message.channel)
             .addField('Reason', reason)
-            .setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+            .setAuthor('Dove | Moderation', bot.user.avatarURL())
     
         message.channel.send(`<@${target.id}> has been banned for: **${reason}**`);
         message.guild.members.ban(target);

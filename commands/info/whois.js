@@ -11,10 +11,10 @@ module.exports = {
         let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
         if(!target) return message.channel.send('You must mention someone!')
         let embed = new discord.MessageEmbed()
-        .setColor('#007dff')
+        .setColor('#000000')
         .setTitle(target.user.username)
         .setThumbnail(target.user.avatarURL())
-        .setAuthor('Cubic | WhoIs/User Lookup', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+        .setAuthor('Dove | WhoIs/User Lookup', bot.user.avatarURL())
         .addField('User Info',
          `**Display Name: **${target.displayName}
          **ID: **${target.user.id}

@@ -17,7 +17,7 @@ module.exports = {
           .setTitle('Have some deeeeep anal!')
           .setDescription(anal.title)
           .setImage(anal.media)
-          .setColor('#007dff')
+          .setColor('#000000')
           .setFooter(`From: ${anal.subreddit} | Powered By: Trev`)
           message.channel.send(embed);
         } catch (error) {

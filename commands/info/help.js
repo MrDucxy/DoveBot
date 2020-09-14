@@ -30,8 +30,8 @@ module.exports = {
 
 function getAll(bot, message) {
     const embed = new MessageEmbed()
-        .setColor("#007dff")
-        .setAuthor('Cubic | Help', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+        .setColor("#000000")
+        .setAuthor('Dove | Help', bot.user.avatarURL())
         
     // Map all the commands
     // with the specific category
@@ -71,5 +71,5 @@ function getCMD(bot, message, input) {
         info += `\n**Usage**: ${cmd.usage}`;
     }
 
-    return message.channel.send(embed.setColor("#007dff").setDescription(info).setAuthor('Cubic | Help', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif'));
+    return message.channel.send(embed.setColor("#000000").setDescription(info).setAuthor('Dove | Help', bot.user.avatarURL()));
 }

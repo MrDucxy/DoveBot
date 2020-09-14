@@ -74,15 +74,15 @@ bot.on('message', async (message) =>{
 		logChannel = await message.guild.channels.create("logs", {
 			type: "text",
 			nsfw: true,
-			reason: "Cubic attempted to log something, but the logs channel did not exist."
+			reason: "Dove attempted to log something, but the logs channel did not exist."
 		})
 	}
 	//Exit if the bot could not find or create the logs channel(E.g lacks permission)
 		if(!logChannel) return;
 	
 		let embed = new Discord.MessageEmbed()
-		.setColor('#007dff')
-		.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+		.setColor('#000000')
+		.setAuthor('Dove | Moderation', bot.user.avatarURL())
 		.setThumbnail(message.author.avatarURL())
 		.setTitle(`Possible IP Logger/Shortner Deleted: ${message.author.tag}`)
 		.addField('Message', message.content.substr(0,500) + (message.content.length > 500 ? "..." : ""))
@@ -114,7 +114,7 @@ bot.on('message', async (message) =>{
 	if(!command) command = bot.commands.get(bot.aliases.get(cmd));
 	
 	if(command && blacklistUsers.blacklistedUsers.includes(message.author.id)){
-		return message.reply('You are blacklisted from using Cubic!')
+		return message.reply('You are blacklisted from using Dove!')
 	}
 
     if(command){
@@ -144,7 +144,7 @@ bot.on("messageDelete", async msg => {
 		logChannel = await msg.guild.channels.create("logs", {
 			type: "text",
 			nsfw: true,
-			reason: "Cubic attempted to log something, but the logs channel did not exist."
+			reason: "Dove attempted to log something, but the logs channel did not exist."
 		})
 	}
 	//Exit if the bot could not find or create the logs channel(E.g lacks permission)
@@ -153,8 +153,8 @@ bot.on("messageDelete", async msg => {
 	if(msg.attachments.size > 0){
 
 			let embed = new Discord.MessageEmbed()
-			.setColor('#007dff')
-			.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+			.setColor('#000000')
+			.setAuthor('Dove | Moderation', bot.user.avatarURL())
 			.setThumbnail(msg.author.avatarURL())
 			.setTitle(`Attachment Deleted: ${msg.author.tag}`)
 			.addField('Channel', `<#${msg.channel.id}>`)
@@ -163,8 +163,8 @@ bot.on("messageDelete", async msg => {
 	}
 	else {
 		let embed = new Discord.MessageEmbed()
-		.setColor('#007dff')
-		.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+		.setColor('#000000')
+		.setAuthor('Dove | Moderation', bot.user.avatarURL())
 		.setThumbnail(msg.author.avatarURL())
 		.setTitle(`Message Deleted: ${msg.author.tag}`)
 		.addField('Message', msg.content.substr(0,500) + (msg.content.length > 500 ? "..." : ""))
@@ -203,15 +203,15 @@ bot.on("messageUpdate", async (oldMsg, newMsg) => {
 		logChannel = await oldMsg.guild.channels.create("logs", {
 			type: "text",
 			nsfw: true,
-			reason: "Cubic attempted to log something, but the logs channel did not exist."
+			reason: "Dove attempted to log something, but the logs channel did not exist."
 		})
 	}
 	//Exit if the bot could not find or create the logs channel(E.g lacks permission)
 		if(!logChannel) return;
 	
 		let embed = new Discord.MessageEmbed()
-		.setColor('#007dff')
-		.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+		.setColor('#000000')
+		.setAuthor('Dove | Moderation', bot.user.avatarURL())
 		.setThumbnail(newMsg.author.avatarURL())
 		.setTitle(`Possible IP Logger/Shortner Deleted: ${newMsg.author.tag}`)
 		.addField('Message', newMsg.content.substr(0,500) + (newMsg.content.length > 500 ? "..." : ""))
@@ -242,16 +242,16 @@ bot.on("messageUpdate", async (oldMsg, newMsg) => {
 		logChannel = await oldMsg.guild.channels.create("logs", {
 			type: "text",
 			nsfw: true,
-			reason: "Cubic attempted to log something, but the logs channel did not exist."
+			reason: "Dove attempted to log something, but the logs channel did not exist."
 		})
 	}
 	//Exit if the bot could not find or create the logs channel(E.g lacks permission)
 	if(!logChannel) return
 
 	let embed = new Discord.MessageEmbed()
-	.setColor('#007dff')
+	.setColor('#000000')
 	.setThumbnail(oldMsg.author.avatarURL())
-	.setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+	.setAuthor('Dove | Moderation', bot.user.avatarURL())
 	.setTitle(`Message Edited: ${oldMsg.author.tag}`)
 	.addField('Old Message', oldMsg.content)
 	.addField('New Message', newMsg.content)

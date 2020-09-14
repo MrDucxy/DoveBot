@@ -17,7 +17,7 @@ module.exports = {
           .setTitle('Have some nice pussy!')
           .setDescription(pussy.title)
           .setImage(pussy.media)
-          .setColor('#007dff')
+          .setColor('#000000')
           .setFooter(`From: ${pussy.subreddit} | Powered By: Trev`)
           message.channel.send(embed);
         } catch (error) {

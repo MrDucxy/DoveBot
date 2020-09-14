@@ -80,13 +80,13 @@ module.exports = {
                             play(message.guild, queueConstruct.songs[0])
     
                             let embed = new discord.MessageEmbed()
-                            .setColor('#007dff')
+                            .setColor('#000000')
                             .setTitle(song.title)
                             .setDescription('Now Playing!')
                             .setThumbnail(song.thumbnail)
                             .addField('Duration', song.duration)
                             .setURL(song.url)
-                            .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                            .setAuthor('Dove | Music', bot.user.avatarURL())
                             
                             message.channel.send(embed)
                         } catch (error) {
@@ -96,13 +96,13 @@ module.exports = {
                     } else{
                         serverQueue.songs.push(song)
                         let embed = new discord.MessageEmbed()
-                        .setColor('#007dff')
+                        .setColor('#000000')
                         .setTitle(song.title)
                         .setDescription('Song added to queue!')
                         .addField('Duration', song.duration)
                         .setThumbnail(song.thumbnail)
                         .setURL(song.url)
-                        .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                        .setAuthor('Dove | Music', bot.user.avatarURL())
                         
                         message.channel.send(embed)
                     }
@@ -153,12 +153,12 @@ module.exports = {
 
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
                     let embed = new discord.MessageEmbed()
-                    .setColor('#007dff')
+                    .setColor('#000000')
                     .setTitle(serverQueue.songs[0].title)
                     .setDescription('Currently Playing Song')
                     .setThumbnail(serverQueue.songs[0].thumbnail)
                     .setURL(serverQueue.songs[0].url)
-                    .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                    .setAuthor('Dove | Music', bot.user.avatarURL())
 
                     message.channel.send(embed)
 
@@ -171,20 +171,20 @@ module.exports = {
 
                     if(songMap.length > 2000){
                         let embed1 = new discord.MessageEmbed()
-                        .setColor('#007dff')
+                        .setColor('#000000')
                         .setTitle('Server Queue')
                         .setDescription(songMap.substring(0, 2000) + '\r**List too long for embed...**')
-                        .setThumbnail('https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
-                        .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                        .setThumbnail(bot.user.avatarURL())
+                        .setAuthor('Dove | Music', bot.user.avatarURL())
     
                         message.channel.send(embed1)
                     } else {
                         let embed1 = new discord.MessageEmbed()
-                        .setColor('#007dff')
+                        .setColor('#000000')
                         .setTitle('Server Queue')
                         .setDescription(songMap)
-                        .setThumbnail('https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
-                        .setAuthor('Cubic | Music', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+                        .setThumbnail(bot.user.avatarURL())
+                        .setAuthor('Dove | Music', bot.user.avatarURL())
     
                         message.channel.send(embed1)
                     }

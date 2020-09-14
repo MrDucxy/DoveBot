@@ -11,10 +11,10 @@ module.exports = {
         try {
 
             let embed = new discord.MessageEmbed()
-            .setColor('#007dff')
+            .setColor('#000000')
             .setTitle(message.guild.name)
             .setThumbnail(message.guild.iconURL())
-            .setAuthor('Cubic | Guild Info', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+            .setAuthor('Dove | Guild Info', bot.user.avatarURL())
             .addField('Server Info',
              `**Name: **${message.guild.name}
              **ID: **${message.guild.id}
@@ -27,10 +27,10 @@ module.exports = {
         } catch (error) {
 
             let embed = new discord.MessageEmbed()
-            .setColor('#007dff')
+            .setColor('#000000')
             .setTitle(message.guild.name)
             .setThumbnail(message.guild.iconURL())
-            .setAuthor('Cubic | Guild Info', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+            .setAuthor('Dove | Guild Info', bot.user.avatarURL())
             .addField('Server Info',
              `**Name: **${message.guild.name}
              **ID: **${message.guild.id}

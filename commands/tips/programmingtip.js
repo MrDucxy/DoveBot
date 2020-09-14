@@ -14,9 +14,9 @@ module.exports = {
         let result = Math.floor((Math.random() * replies.length));
 
         let embed = new discord.MessageEmbed()
-        .setColor('#007dff')
-        .setThumbnail('https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
-        .setAuthor('Cubic | Tips', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+        .setColor('#000000')
+        .setThumbnail(bot.user.avatarURL())
+        .setAuthor('Dove | Tips', bot.user.avatarURL())
         .addField('Programming Tip', replies[result])
 
         message.reply(embed);

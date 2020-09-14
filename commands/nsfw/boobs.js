@@ -17,7 +17,7 @@ module.exports = {
           .setTitle('Have some nice boobs!')
           .setDescription(boobs.title)
           .setImage(boobs.media)
-          .setColor('#007dff')
+          .setColor('#000000')
           .setFooter(`From: ${boobs.subreddit} | Powered By: Trev`)
           message.channel.send(embed);
         } catch (error) {

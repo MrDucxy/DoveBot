@@ -13,9 +13,10 @@ module.exports = {
           try {
             let embed = new discord.MessageEmbed()
             .setTitle('Have a funny meme!')
+            .setAuthor('Dove | Meme', bot.user.avatarURL())
             .setDescription(meme.title)
             .setImage(meme.media)
-            .setColor('#007dff')
+            .setColor('#000000')
             .setFooter(`From: ${meme.subreddit} | Powered By: Trev`)
             message.channel.send(embed);
           } catch (error) {

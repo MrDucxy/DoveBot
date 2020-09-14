@@ -25,14 +25,14 @@ module.exports = {
     
         let embed = new discord.MessageEmbed()
             .setTitle(`${message.author.tag} reported a user.`)
-            .setColor('#007dff')
+            .setColor('#000000')
             .setThumbnail(target.user.avatarURL())
             .addField('Reported Member', `<@${target.id}> (${target.user.id})`)
             .addField('Reported By', `<@${message.author.id}> (${message.author.id})`)
             .addField('Report Time', message.createdAt)
             .addField('Reported In', message.channel)
             .addField('Reason', reason)
-            .setAuthor('Cubic | Moderation', 'https://media.giphy.com/media/j3J8QlFC5avvVd1JAj/giphy.gif')
+            .setAuthor('Dove | Moderation', bot.user.avatarURL())
     
         message.channel.send(`Your report for "**${target.user.username}**" has been submitted!`);
         reports.send(embed);
