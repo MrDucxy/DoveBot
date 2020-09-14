@@ -35,9 +35,8 @@ bot.on("ready", async () => {
 });
 
 
-bot.on("guildMemberUpdate", async (oldMember, newMember) => {
-	if(oldMember.user.id == "535163098991165450") return oldMember.setNickname('gae fag')
-})
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,6 +51,10 @@ bot.categories = fs.readdirSync("./commands/");
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 // Message Event
     
