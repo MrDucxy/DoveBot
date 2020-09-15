@@ -5,7 +5,7 @@ const { stripIndents }  = require('common-tags')
 module.exports = {
         name: "dictionary",
         aliases: ["urban", "ud", "dic"],
-        category: "Learning",
+        category: "Fun",
         description: "Find a word in the Urban Dictionary",
         usage: "$dictionary <word>",
     run: async (bot, message, args) => {

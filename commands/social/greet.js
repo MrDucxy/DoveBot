@@ -1,5 +1,4 @@
 const discord = require('discord.js');
-var figlet = require('figlet');
 
 module.exports = {
         name: "greet",
