@@ -2,7 +2,7 @@ const discord = require('discord.js');
 
 module.exports = {
         name: "newemoji",
-        aliases: "addemoji",
+        aliases: ["addemoji"],
         category: "Misc",
         description: "Add emoji to the guild.",
         usage: "$newemoji <url> <name>",

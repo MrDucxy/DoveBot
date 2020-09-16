@@ -2,11 +2,8 @@ const botconfig = require('./botconfig.json');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require('fs');
-const blacklistUsers = require("./blacklist.json") 
+const blacklistUsers = "./blacklist.json"
 const badLinks = require("./badLinks.json") 
-
-
-global.__basedir = __dirname;
 
 const AntiSpam = require('discord-anti-spam');
 const antiSpam = new AntiSpam({
@@ -112,14 +109,19 @@ bot.on('message', async (message) =>{
 
     let command = bot.commands.get(cmd);
 	if(!command) command = bot.commands.get(bot.aliases.get(cmd));
-	
-	if(command && blacklistUsers.blacklistedUsers.includes(message.author.id)){
-		return message.reply('You are blacklisted from using Dove!')
-	}
 
-    if(command){
-		command.run(bot, message, args, blacklistUsers, botconfig)
-	}
+	fs.readFile(blacklistUsers, function(err, data){
+		var jsonBLData = JSON.parse(data)
+
+		if(command && jsonBLData.blacklistedUsers.includes(message.author.id)){
+			return message.reply('You are blacklisted from using Dove!')
+		}
+
+		if(command){
+			command.run(bot, message, args, blacklistUsers, botconfig)
+		}
+	})
+
 
 });
 
