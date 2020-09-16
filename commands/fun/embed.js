@@ -9,6 +9,8 @@ module.exports = {
     run: async (bot, message, args) => {
 
         if(!args[0])return message.channel.send('Please specify some text!');
+
+        if(message.content.includes('@everyone')) return message.channel.send('Nice try, you cannot ping everyone.')
     
         const embed = new discord.MessageEmbed()
         .setColor('#000000')
