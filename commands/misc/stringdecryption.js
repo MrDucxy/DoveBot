@@ -19,7 +19,7 @@ module.exports = {
             .setAuthor('Dove | String Decrpytion V1', bot.user.avatarURL())
             .addField('Encrypted Text', toDec)
             .addField('Decryption Key', userDKEY)
-            .setDescription('**Decrypted Text: **\r' + decrypt(toDec))
+            .setDescription('**Decrypted Text **\r' + decrypt(toDec))
 
             message.channel.send(embed)
 

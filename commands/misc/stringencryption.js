@@ -20,7 +20,7 @@ module.exports = {
                 .setAuthor('Dove | String Encryption V1', bot.user.avatarURL())
                 .addField('Input', toEnc)
                 .addField('Decryption Key', userDKEY)
-                .setDescription('**Encrypted Text: **\r' + encrypt(toEnc))
+                .setDescription('**Encrypted Text **\r' + encrypt(toEnc))
     
                 message.author.send(embed)
 
