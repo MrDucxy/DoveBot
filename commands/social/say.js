@@ -11,7 +11,8 @@ module.exports = {
 
         if(!args[0]) return message.channel.send('Please specify some text to say.');
 
-        if(message.content.includes('@everyone')) return message.channel.send('Nice try, you cannot ping everyone.')
+        if(message.content.includes('@everyone')) return message.channel.send('Nice try, you cannot mass ping.')
+        if(message.content.includes('@here')) return message.channel.send('Nice try, you cannot mass ping.')
 
         message.channel.send(args.join(' '));
 
