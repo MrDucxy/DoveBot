@@ -19,8 +19,8 @@ const antiSpam = new AntiSpam({
     maxDuplicatesBan: 15, // Amount of duplicate messages that trigger a warning.
     //exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
     ignoreBots: true, // Ignore bot messages.
-    verbose: true, // Extended Logs from module.
-    ignoredUsers: [], // Array of User IDs that get ignored.
+    verbose: false, // Extended Logs from module.
+    ignoredUsers: ['299263276028788737'], // Array of User IDs that get ignored.
     // And many more options... See the documentation.
 });
 
@@ -99,7 +99,7 @@ bot.on('message', async (message) =>{
 
 
     if(message.author.bot) return;
-    if(!message.guild) return;
+    if(!message.guild && !message.channel.type === 'dm') return;
     if(!message.content.startsWith(botconfig.prefix)) return;
 
     const args = message.content.slice(botconfig.prefix.length).trim().split(/ +/g);
