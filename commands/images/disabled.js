@@ -5,7 +5,7 @@ const moment = require('moment')
 module.exports = {
     name: "disabled",
     aliases: ["disable", "handicapped"],
-    category: "ImageManip",
+    category: "Images",
     description: "Make someone disabled.",
     usage: "$disabled <mention>",
     run: async (bot, message, args) => {
