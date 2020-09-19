@@ -19,7 +19,19 @@ module.exports = {
 
             message.channel.send(rendered, {
                 code: ''
-            });
+            })
+
+            .catch(error =>{
+                figlet('Error!', function(err, rendered){
+                    rendered = rendered.trimRight();
+        
+                    if(rendered.length > 2000) return message.channel.send('Error! That message is too long.')
+        
+                    message.channel.send(rendered, {
+                        code: ''
+                    });
+                })
+            })
         });
 
     }
