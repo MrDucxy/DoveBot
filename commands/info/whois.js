@@ -32,7 +32,7 @@ module.exports = {
         };
 
         //Create the canvas
-        const canvas = Canvas.createCanvas(700, 250);
+        const canvas = Canvas.createCanvas(700, 260);
         const ctx = canvas.getContext('2d');
 
         //Draw The Background Color
