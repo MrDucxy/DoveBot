@@ -8,10 +8,9 @@ module.exports = {
         usage: "$getpfp <mention>",
     run: async (bot, message, args) => {
 
-        let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-        if(!target) return message.reply('You did not mention anybody!');
+        let target = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author);
     
-        message.channel.send(target.user.displayAvatarURL({dynamic : true}));
+        message.channel.send(target.user.displayAvatarURL({dynamic : true, format: 'png', size: 2048}));
     }
 
 };
