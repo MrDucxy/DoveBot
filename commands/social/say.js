@@ -9,6 +9,7 @@ module.exports = {
         usage: "$say <text>",
     run: async (bot, message, args) => {
 
+        if(message.guild.id === '707113280275087462') return;
         if(!args[0]) return message.channel.send('Please specify some text to say.');
 
         if(message.content.includes('@everyone')) return message.channel.send('Nice try, you cannot mass ping.')
