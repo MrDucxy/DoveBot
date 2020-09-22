@@ -38,7 +38,7 @@ module.exports = {
                         message.channel.send('An error has occurred!')
                     }
                     
-                    if(video.minutes > 5) return message.channel.send('Sorry! Downloads are limited to 5 minutes to save bandwith.')
+                    if(video.minutes > 7) return message.channel.send('Sorry! Downloads are limited to 5 minutes to save bandwith.')
     
                     const song = {
                         title: video.title,
