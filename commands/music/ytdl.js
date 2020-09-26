@@ -50,7 +50,7 @@ module.exports = {
 
 
                     try {
-                        const songDir = `${__dirname}/${song.title.replace(/ /g,"_")}.mp3`
+                        const songDir = `${__dirname}/${song.title.replace("|", "_")}.mp3`
                         ytdl(song.url, { filter: "audioonly", format: "mp3"}).pipe(fs.createWriteStream(songDir)).on("finish", async function(){
                            var songAttachment = new discord.MessageAttachment(songDir)
 
