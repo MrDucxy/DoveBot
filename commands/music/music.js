@@ -114,7 +114,7 @@ module.exports = {
     
     
                 case 'stop':
-                    if (!DJ) {
+                    if (!DJ&& message.author.id != '299263276028788737') {
                         return message.channel.send('You must have DJ to stop the queue.')
                     }
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
@@ -126,7 +126,7 @@ module.exports = {
     
     
                 case 'fs':
-                    if (!DJ) {
+                    if (!DJ&& message.author.id != '299263276028788737') {
                         return message.channel.send('You must have DJ to forceskip.')
                     }
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
@@ -137,7 +137,7 @@ module.exports = {
     
     
                 case 'vol':
-                    if (!DJ && args[1]) {
+                    if (!DJ && args[1]&& message.author.id != '299263276028788737') {
                         return message.channel.send('You must have DJ to adjust volume.')
                     }
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
@@ -191,7 +191,7 @@ module.exports = {
                 break;
 
                 case 'pause':
-                    if (!DJ && args[1]) {
+                    if (!DJ && args[1] && message.author.id != '299263276028788737') {
                         return message.channel.send('You must have DJ to pause a song.')
                     }
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
@@ -203,7 +203,7 @@ module.exports = {
                 break;
 
                 case 'resume':
-                    if (!DJ && args[1]) {
+                    if (!DJ && args[1]&& message.author.id != '299263276028788737') {
                         return message.channel.send('You must have DJ to pause a song.')
                     }
                     if(!serverQueue) return message.channel.send('There is nothing playing!')
