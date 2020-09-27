@@ -55,7 +55,7 @@ module.exports = {
                            var songAttachment = new discord.MessageAttachment(songDir)
 
    
-                           await message.channel.send(`**YouTube Download** - ${song.title}\n**Note: This command is semi broken, The audio will not play on your machine. It should play fine in Discord or a browser.**`, songAttachment)
+                           await message.channel.send(`**YouTube Download** - ${song.title}\n**Note: This command is semi broken, you may have issues playing audio elsewhere.**`, songAttachment)
    
                            fs.unlinkSync(songDir)
                         })
