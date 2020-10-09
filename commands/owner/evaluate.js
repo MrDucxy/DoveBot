@@ -25,7 +25,7 @@ module.exports = {
             const toEval = args.join(" ")
             const evaluated = eval(toEval)
     
-            if(typeof evaluated === 'string' && evaluated.includes("NzUxNzA0MjkzNDI5NjA4NTA4.X1M9LQ.aEnXVP7s0p8oprorDaLyyZUVUI0")) return message.channel.send('Ducxy, you retard. That contains your token.')
+            if(typeof evaluated === 'string' && evaluated.includes("tokenhere")) return message.channel.send('Ducxy, you retard. That contains your token.')
     
             let embed = new discord.MessageEmbed()
                 .setColor("#000000")
