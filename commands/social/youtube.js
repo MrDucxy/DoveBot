@@ -1,6 +1,6 @@
 const discord = require('discord.js');
 const { YouTube } = require('popyt')
-const youtube = new YouTube('AIzaSyD7CoeqcMFRIHVnq2C2tomXm1BZ05gXGEc')
+const youtube = new YouTube('apikeyhere')
 
 module.exports = {
         name: "youtube",

@@ -3,7 +3,7 @@ const ytdl = require('ytdl-core');
 const fs = require('fs');
 const { YouTube } = require('popyt');
 const { dirname } = require('path');
-const youtube = new YouTube('AIzaSyD7CoeqcMFRIHVnq2C2tomXm1BZ05gXGEc')
+const youtube = new YouTube('apikeyhere')
 
 const queue = new Map()
 

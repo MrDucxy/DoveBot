@@ -2,8 +2,8 @@ const discord = require('discord.js');
 var Spotify = require('node-spotify-api');
 
 var spotify = new Spotify({
-    id: 'f3cc04864ba942f9b2e97cc2c06ed293',
-    secret: '609ea8616891447cac18c1d200a6c6f5'
+    id: 'clientidhere',
+    secret: 'secrethere'
   });
 
 
